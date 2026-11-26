@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RO-S20 有限差分法（FDM）数值求解自由边界 BVP 与变分不等式（VI） · 连续时间实物期权 · 8周轻量实战</title>
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="../index.html">连续时间实物期权 · 8周轻量实战</a>
+      <nav class="nav-links">
+        <a href="../index.html">8周总览</a>
+        <a href="../stages/stage01.html">Stage 1</a>
+        <a href="../stages/stage02.html">Stage 2</a>
+        <a href="../stages/stage03.html">Stage 3</a>
+        <a href="../stages/stage04.html">Stage 4</a>
+      </nav>
+    </div>
+  </header>
+  <main class="container">
+    
+    <p class="muted" style="margin:0 0 10px;">
+      <a href="../index.html">8周总览</a> /
+      <a href="../stages/stage04.html">Stage 4｜现代数值校验、区间证书与论文实战</a> /
+      RO-S20
+    </p>
+
+    <section class="card">
+      <div class="hero-meta" style="margin-bottom:10px;">
+        <span class="chip chip-navy">RO-S20 · 第 7 周 · 第 2 课</span>
+        <span class="chip chip-navy">预计 25 分钟</span>
+        <span class="chip chip-outline">骨架预览（待精修）</span>
+      </div>
+      <h1 style="margin:0 0 12px;font-size:1.35rem;color:var(--navy);line-height:1.35;">有限差分法（FDM）数值求解自由边界 BVP 与变分不等式（VI）</h1>
+      <div class="highlight-box">
+        <b>1. 3 分钟直觉唤醒（一句话核心）</b>
+        <p style="margin:6px 0 0;">不依赖任何解析公式，直接把状态空间切网格，用有限差分 + 投影迭代（PSOR/策略迭代）解出值函数和自由边界，作为完全独立的“第二证人”。</p>
+      </div>
+      <p style="margin:0 0 6px;"><b>它解决什么建模痛点：</b>当你担心自己的解析推导漏掉局部时、算错边界条件或存在多阈值时，一套独立的网格 VI 求解器能立刻把真解画出来对照。</p>
+      <p style="margin:0;" class="muted"><b>课程衔接：</b>把 RO-S14 的变分不等式 min{rV - LV, V - g} = 0 直接搬进计算机。</p>
+    </section>
+
+    
+        <div class="notice-outline">
+          <b>骨架预览提示：</b>本节当前提供核心公式、学习定位与预热自测；后续逐阶段精修时将补齐详细白话拆解、完整教学演示算例与更多自测题。
+        </div>
+        
+
+    <section class="card">
+      <h2>2. 10 分钟核心公式与白话拆解</h2>
+      <p>【骨架预览 · 待后续精修】本课讲透中心差分/迎风差分构造三对角矩阵、策略迭代（Policy Iteration / Howard 算法）求解线性互补问题（LCP），以及如何与解析解逐点比对最大误差。</p>
+      
+        <div class="formula-block">
+          <div class="formula-title">离散变分不等式（LCP）</div>
+          <div class="math-scroll">$$\min\big\{ A \mathbf{V} - \mathbf{b},\; \mathbf{V} - \mathbf{g} \big\} = \mathbf{0}$$</div>
+          <p class="formula-read"><b>白话读法：</b>网格上每个点要么满足离散 ODE（继续等），要么贴在立即收益 g 上（立刻停）。</p>
+        </div>
+        
+      <div class="step-grid">
+        <div class="step-card">
+          <h3>待精修：网格校验 3 要点</h3>
+          <p style="margin:4px 0 0;">合理截断上界 x_max → 网格加密收敛测试（N = 500, 1000, 2000）→ 核对 |V_FDM - V_exact| 与门槛误差。</p>
+          <div class="step-meta"><b>实战口诀：</b>解析解和独立网格解误差缩到 1e-4 以下，基本可排除推导方向性错误。</div>
+          <div class="step-meta"><b>适用边界：</b>注意上界截断边界条件不能离真实门槛太近。</div>
+        </div>
+        </div>
+    </section>
+
+    
+
+    <section class="card">
+      <h2>4. 3 分钟防坑边界与常见误区</h2>
+      <div class="pitfall-box">
+        <b>顶刊与推导避坑提示</b>
+        <ul><li>把解析公式里的系数写进数值代码，导致“自己验自己”失去独立性。</li></ul>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>5. 5 分钟轻量自测与 60 秒费曼复述</h2>
+      
+        <div class="quiz-card">
+          <div><b>Q1.</b> 【预热自测】为什么用 FDM 解 VI 被审稿人视为极强的独立交叉验算？</div>
+          <details>
+            <summary>展开参考答案与解析</summary>
+            <p style="margin:8px 0 4px;"><b>参考答案：</b>因为它直接从原问题（算子 L、收益 g、边界条件）出发，完全不经过解析猜解、特征根或门槛方程，两者吻合能强力排错。</p>
+            <p style="margin:4px 0;"><b>解析：</b>独立路径交叉验算能堵住“是不是解析推错了”的质疑。</p>
+            <p style="margin:4px 0 0;" class="muted"><b>常见失误：</b>只做参数敏感性画图而不做独立偏微分/ODE 网格校验。</p>
+          </details>
+        </div>
+        
+      <div class="highlight-box" style="margin-top:14px;">
+        <b>60 秒闭卷费曼复述</b>
+        <p style="margin:6px 0 0;">用一句话解释“网格解 VI”为什么能当解析推导的独立第二证人。</p>
+      </div>
+      <div class="cta-row">
+        <button id="toggle-done-btn" type="button" class="btn btn-navy" data-lesson-key="ro-s20">
+          标记本节已完成（本地打卡）
+        </button>
+      </div>
+    </section>
+
+    <nav class="pager">
+      <a class="btn btn-soft" href="ro-s19.html">← 上一节：RO-S19</a>
+      <a class="btn btn-soft" href="../stages/stage04.html">返回本阶段目录</a>
+      <a class="btn btn-navy" href="ro-s21.html">下一节：RO-S21 →</a>
+    </nav>
+    
+    <footer class="disclaimer">本课程所有金融、能源或商业投资算例均标注为“教学演示”，仅用于辅助理解数学机制，不代表已核验文献结论或实证结果。</footer>
+  </main>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+  <script defer src="../assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RO-S08 Itô 引理的工程读法：二阶项从哪来 · 连续时间实物期权 · 8周轻量实战</title>
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="../index.html">连续时间实物期权 · 8周轻量实战</a>
+      <nav class="nav-links">
+        <a href="../index.html">8周总览</a>
+        <a href="../stages/stage01.html">Stage 1</a>
+        <a href="../stages/stage02.html">Stage 2</a>
+        <a href="../stages/stage03.html">Stage 3</a>
+        <a href="../stages/stage04.html">Stage 4</a>
+      </nav>
+    </div>
+  </header>
+  <main class="container">
+    
+    <p class="muted" style="margin:0 0 10px;">
+      <a href="../index.html">8周总览</a> /
+      <a href="../stages/stage02.html">Stage 2｜建模型、值匹配与平滑粘贴</a> /
+      RO-S08
+    </p>
+
+    <section class="card">
+      <div class="hero-meta" style="margin-bottom:10px;">
+        <span class="chip chip-navy">RO-S08 · 第 3 周 · 第 2 课</span>
+        <span class="chip chip-navy">预计 22 分钟</span>
+        <span class="chip chip-outline">骨架预览（待精修）</span>
+      </div>
+      <h1 style="margin:0 0 12px;font-size:1.35rem;color:var(--navy);line-height:1.35;">Itô 引理的工程读法：二阶项从哪来</h1>
+      <div class="highlight-box">
+        <b>1. 3 分钟直觉唤醒（一句话核心）</b>
+        <p style="margin:6px 0 0;">Itô 引理就是把普通微积分的链式法则多保留一项二阶 Taylor 展开，再把 (dW_t)² 替换成 dt。</p>
+      </div>
+      <p style="margin:0 0 6px;"><b>它解决什么建模痛点：</b>打通随机微分方程 dX_t 到价值函数微分 dV(X_t) 的唯一通道。</p>
+      <p style="margin:0;" class="muted"><b>课程衔接：</b>直接承接 RO-S06 的 (dW_t)² = dt。</p>
+    </section>
+
+    
+        <div class="notice-outline">
+          <b>骨架预览提示：</b>本节当前提供核心公式、学习定位与预热自测；后续逐阶段精修时将补齐详细白话拆解、完整教学演示算例与更多自测题。
+        </div>
+        
+
+    <section class="card">
+      <h2>2. 10 分钟核心公式与白话拆解</h2>
+      <p>【骨架预览 · 待下轮精修】本课将用 3 行二阶 Taylor 展开写出 Itô 引理，并用它验证 RO-S05 中对数价格 ln X_t 的漂移率为什么恰好是 μ - ½σ²。</p>
+      
+        <div class="formula-block">
+          <div class="formula-title">一维 GBM 的 Itô 公式</div>
+          <div class="math-scroll">$$dV(X_t) = \left(\mu X_t V'(X_t) + \frac{1}{2}\sigma^2 X_t^2 V''(X_t)\right)dt + \sigma X_t V'(X_t)\,dW_t$$</div>
+          <p class="formula-read"><b>白话读法：</b>确定性漂移部分多出了 ½σ²X²V&#x27;&#x27;，随机波动部分是 σ X V&#x27; dW_t。</p>
+        </div>
+        
+      <div class="step-grid">
+        <div class="step-card">
+          <h3>待精修：二阶 Taylor + 乘法表</h3>
+          <p style="margin:4px 0 0;">dV = V&#x27; dX + ½ V&#x27;&#x27; (dX)²，代入 (dX)² = σ² X² dt 即可。</p>
+          <div class="step-meta"><b>实战口诀：</b>见到 GBM 的光滑函数 V(X_t)，直接套用此公式。</div>
+          <div class="step-meta"><b>适用边界：</b>要求 V 至少二阶连续可微（C²）；在有折点或自由边界处需要 Stage 3 的推广形式。</div>
+        </div>
+        </div>
+    </section>
+
+    
+
+    <section class="card">
+      <h2>4. 3 分钟防坑边界与常见误区</h2>
+      <div class="pitfall-box">
+        <b>顶刊与推导避坑提示</b>
+        <ul><li>漏掉 ½ 系数或漏掉 X_t² 因子。</li></ul>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>5. 5 分钟轻量自测与 60 秒费曼复述</h2>
+      
+        <div class="quiz-card">
+          <div><b>Q1.</b> 【预热自测】对 f(x) = ln x 应用 Itô 引理（X_t 服从 GBM），二阶项 ½σ²x² f&#x27;&#x27;(x) 等于多少？</div>
+          <details>
+            <summary>展开参考答案与解析</summary>
+            <p style="margin:8px 0 4px;"><b>参考答案：</b>-½σ²。</p>
+            <p style="margin:4px 0;"><b>解析：</b>因为 f&#x27;&#x27;(x) = -1/x²，乘以 ½σ²x² 恰好得到 -½σ²，完美呼应 RO-S05。</p>
+            <p style="margin:4px 0 0;" class="muted"><b>常见失误：</b>算错 (ln x)&#x27;&#x27; 的负号。</p>
+          </details>
+        </div>
+        
+      <div class="highlight-box" style="margin-top:14px;">
+        <b>60 秒闭卷费曼复述</b>
+        <p style="margin:6px 0 0;">用一句话解释：为什么 Itô 引理比大一微积分的链式法则多出一项二阶导？</p>
+      </div>
+      <div class="cta-row">
+        <button id="toggle-done-btn" type="button" class="btn btn-navy" data-lesson-key="ro-s08">
+          标记本节已完成（本地打卡）
+        </button>
+      </div>
+    </section>
+
+    <nav class="pager">
+      <a class="btn btn-soft" href="ro-s07.html">← 上一节：RO-S07</a>
+      <a class="btn btn-soft" href="../stages/stage02.html">返回本阶段目录</a>
+      <a class="btn btn-navy" href="ro-s09.html">下一节：RO-S09 →</a>
+    </nav>
+    
+    <footer class="disclaimer">本课程所有金融、能源或商业投资算例均标注为“教学演示”，仅用于辅助理解数学机制，不代表已核验文献结论或实证结果。</footer>
+  </main>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+  <script defer src="../assets/app.js"></script>
+</body>
+</html>

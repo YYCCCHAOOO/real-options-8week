@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RO-S05 随机变量、期望方差与对数正态分布：看懂 GBM 的截面分布 · 连续时间实物期权 · 8周轻量实战</title>
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="../index.html">连续时间实物期权 · 8周轻量实战</a>
+      <nav class="nav-links">
+        <a href="../index.html">8周总览</a>
+        <a href="../stages/stage01.html">Stage 1</a>
+        <a href="../stages/stage02.html">Stage 2</a>
+        <a href="../stages/stage03.html">Stage 3</a>
+        <a href="../stages/stage04.html">Stage 4</a>
+      </nav>
+    </div>
+  </header>
+  <main class="container">
+    
+    <p class="muted" style="margin:0 0 10px;">
+      <a href="../index.html">8周总览</a> /
+      <a href="../stages/stage01.html">Stage 1｜微积分、概率与 ODE 关键底座</a> /
+      RO-S05
+    </p>
+
+    <section class="card">
+      <div class="hero-meta" style="margin-bottom:10px;">
+        <span class="chip chip-navy">RO-S05 · 第 2 周 · 第 2 课</span>
+        <span class="chip chip-navy">预计 20 分钟</span>
+        <span class="chip chip-ready">完整微课</span>
+      </div>
+      <h1 style="margin:0 0 12px;font-size:1.35rem;color:var(--navy);line-height:1.35;">随机变量、期望方差与对数正态分布：看懂 GBM 的截面分布</h1>
+      <div class="highlight-box">
+        <b>1. 3 分钟直觉唤醒（一句话核心）</b>
+        <p style="margin:6px 0 0;">如果一个正数价格的对数 ln X_t 服从正态分布，那么 X_t 本身服从对数正态分布——它的中位数比均值低，正因为多出了那一项著名的 -½σ²t。</p>
+      </div>
+      <p style="margin:0 0 6px;"><b>它解决什么建模痛点：</b>读随机微积分论文时，你一定会遇到几何布朗运动的闭式解 X_t = x exp((μ - ½σ²)t + σW_t)。今天弄懂“为什么指数里平白无故减去 ½σ²t”，后面学 Itô 引理时就不会觉得它是魔术。</p>
+      <p style="margin:0;" class="muted"><b>课程衔接：</b>衔接 RO-S04 的期望现值，打开概率与连续时间随机过程的大门。</p>
+    </section>
+
+    
+
+    <section class="card">
+      <h2>2. 10 分钟核心公式与白话拆解</h2>
+      <p>正态分布左右对称，可以取负数；但商品价格、市场需求、企业营收通常是正数且右偏（跌幅最多跌到 0，涨幅理论上不封顶）。对正数取对数 ln X_t 后，它就变回对称的正态分布了。</p><p>这里藏着一个极其反直觉的数学事实：如果 Z ~ N(m, s²)，那么 E[e^Z] 不是 e^m，而是 e^{m + ½s²}！多出来的 +½s² 正是因为指数函数 e^z 是严格凸函数（回想 RO-S01），向上波动赚的比向下波动亏的多。</p><p>反过来，为了让未来的期望价格刚好保持 E[X_t] = x e^{μt}，对数收益率的均值 m 就必须提前扣掉 ½σ²t，写成 (μ - ½σ²)t。这个 -½σ²t 被称为“波动率拖累（volatility drag）”或 Itô 修正项。</p>
+      
+        <div class="formula-block">
+          <div class="formula-title">正态随机变量的指数矩（对数正态均值公式）</div>
+          <div class="math-scroll">$$Z \sim N(m, s^2) \implies \mathbb{E}[e^Z] = \exp\left(m + \frac{1}{2}s^2\right)$$</div>
+          <p class="formula-read"><b>白话读法：</b>正态分布取指数后，均值不仅取决于中心 m，还会被方差 s² 向上拉高 exp(½s²)。</p>
+        </div>
+        
+        <div class="formula-block">
+          <div class="formula-title">期望增长率 vs 中位数增长率</div>
+          <div class="math-scroll">$$\ln\frac{X_t}{x} \sim N\left(\left(\mu - \frac{1}{2}\sigma^2\right)t,\; \sigma^2 t\right) \implies \mathbb{E}[X_t] = x e^{\mu t},\quad \text{Median}(X_t) = x e^{(\mu - \frac{1}{2}\sigma^2)t}$$</div>
+          <p class="formula-read"><b>白话读法：</b>算术期望按 μ 增长，但典型路径（中位数）只按 μ - ½σ² 增长。波动率很大时，可能“平均收益为正，但大多数样本路径都在下跌”。</p>
+        </div>
+        
+      <div class="step-grid">
+        <div class="step-card">
+          <h3>第 1 步：用 Jensen 不等式先定方向</h3>
+          <p style="margin:4px 0 0;">因为 f(z) = e^z 严格凸，所以 E[e^Z] &gt; e^{E[Z]} = e^m。这告诉你指数期望一定大于中位数。</p>
+          <div class="step-meta"><b>实战口诀：</b>遇到凸函数套在随机变量外面，第一反应 E[f(Z)] &gt; f(E[Z])。</div>
+          <div class="step-meta"><b>适用边界：</b>仅当方差 s² &gt; 0 时严格大于；s = 0 时退化为等号。</div>
+        </div>
+        
+        <div class="step-card">
+          <h3>第 2 步：记住精准修正量 +½s²</h3>
+          <p style="margin:4px 0 0;">对正态密度函数配方法积分可得精确结果 E[e^Z] = exp(m + ½s²)。这等价于把正态分布的矩母函数 M_Z(1) 带入。</p>
+          <div class="step-meta"><b>实战口诀：</b>记死公式 E[exp(a Z)] = exp(a m + ½ a² s²)，后面对 X_t^γ 求期望全靠它。</div>
+          <div class="step-meta"><b>适用边界：</b>仅对正态分布 Z 精确成立；厚尾分布没有这个简单封闭形式。</div>
+        </div>
+        
+        <div class="step-card">
+          <h3>第 3 步：顺手推出 E[X_t^γ]（直通特征方程！）</h3>
+          <p style="margin:4px 0 0;">既然 ln(X_t/x) ~ N((μ - ½σ²)t, σ²t)，那么 γ ln(X_t/x) 的均值是 γ(μ - ½σ²)t、方差是 γ²σ²t，所以 E[X_t^γ] = x^γ exp([μγ + ½σ²γ(γ-1)]t)！看指数里的括号——它居然就是特征方程里的 Q(γ) + r！</p>
+          <div class="step-meta"><b>实战口诀：</b>发现了吗？e^{-rt} X_t^β 期望不变，等价于 Q(β) = 0——这就是鞅的雏形！</div>
+          <div class="step-meta"><b>适用边界：</b>这一步让你提前打通 Stage 1 和 Stage 3 的任督二脉。</div>
+        </div>
+        </div>
+    </section>
+
+    
+        <section class="card">
+          <h2>3. 5 分钟最小算例（教学演示）</h2>
+          <div class="example-box">
+            <h3>【教学演示】高波动下的“均值涨、中位数跌”现象</h3>
+            <p>（教学演示算例）设某资产初始值 x = 100，期望年化增长率 μ = 0.05，年化波动率 σ = 0.40，观察 t = 10 年后的分布。</p>
+            <ol style="margin:8px 0 0;padding-left:20px;"><li>算术期望：E[X_10] = 100 × exp(0.05 × 10) = 100 × e^{0.5} ≈ 164.9。</li><li>计算对数漂移率：μ - ½σ² = 0.05 - 0.5 × 0.16 = -0.03 &lt; 0！</li><li>中位数路径：Median(X_10) = 100 × exp(-0.03 × 10) = 100 × e^{-0.3} ≈ 74.1。也就是说，10 年后超过一半的样本路径其实亏钱了，但少数暴涨路径把整体平均值拉到了 164.9。</li></ol>
+          </div>
+        </section>
+        
+
+    <section class="card">
+      <h2>4. 3 分钟防坑边界与常见误区</h2>
+      <div class="pitfall-box">
+        <b>顶刊与推导避坑提示</b>
+        <ul><li>把模拟 GBM 时的漂移项错写成 μt 而不是 (μ - ½σ²)t：在 Stage 4 写蒙特卡洛代码时如果忘了减 ½σ²，模拟出来的期望值会比解析解系统性偏高。</li><li>以为中位数下跌就意味着期望回报为负：右偏分布下，均值与中位数可以完全反向。</li></ul>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>5. 5 分钟轻量自测与 60 秒费曼复述</h2>
+      
+        <div class="quiz-card">
+          <div><b>Q1.</b> 已知 Z ~ N(0, σ²t)，求 E[exp(σ W_t)]（其中 W_t ~ N(0, t)）。</div>
+          <details>
+            <summary>展开参考答案与解析</summary>
+            <p style="margin:8px 0 4px;"><b>参考答案：</b>exp(½ σ² t)。</p>
+            <p style="margin:4px 0;"><b>解析：</b>这里 m = 0，方差 s² = σ²t，代入 E[e^Z] = exp(m + ½s²) 即得。</p>
+            <p style="margin:4px 0 0;" class="muted"><b>常见失误：</b>误以为因为 E[W_t] = 0，所以 E[exp(σ W_t)] = exp(0) = 1。</p>
+          </details>
+        </div>
+        
+        <div class="quiz-card">
+          <div><b>Q2.</b> 在 GBM 闭式解 X_t = x exp((μ - ½σ²)t + σW_t) 中，为什么要减去 ½σ²t？</div>
+          <details>
+            <summary>展开参考答案与解析</summary>
+            <p style="margin:8px 0 4px;"><b>参考答案：</b>为了抵消 E[exp(σW_t)] = exp(½σ²t) 带来的凸性抬升，使期望价格严格保持为 E[X_t] = x e^{μt}。</p>
+            <p style="margin:4px 0;"><b>解析：</b>这是指数函数凸性与正态方差共同作用的结果。</p>
+            <p style="margin:4px 0 0;" class="muted"><b>常见失误：</b>死记公式却不知道 -½σ²t 是为了配平期望。</p>
+          </details>
+        </div>
+        
+        <div class="quiz-card">
+          <div><b>Q3.</b> 在 RO-S05 第 3 步中，我们发现 E[e^{-rt} X_t^γ] = x^γ exp(Q(γ) t)。当 γ = β（满足 Q(β) = 0）时，E[e^{-rt} X_t^β] 等于什么？</div>
+          <details>
+            <summary>展开参考答案与解析</summary>
+            <p style="margin:8px 0 4px;"><b>参考答案：</b>恒等于 x^β（不随时间 t 变化）。</p>
+            <p style="margin:4px 0;"><b>解析：</b>这意味着折现后的幂函数过程 e^{-rt} X_t^β 是一个“鞅”——未来任何时刻的期望都等于今天的取值。</p>
+            <p style="margin:4px 0 0;" class="muted"><b>常见失误：</b>把欧拉特征方程和随机过程割裂开，没意识到 Q(β) = 0 恰好保证折现价值过程是鞅。</p>
+          </details>
+        </div>
+        
+      <div class="highlight-box" style="margin-top:14px;">
+        <b>60 秒闭卷费曼复述</b>
+        <p style="margin:6px 0 0;">向没有学过随机微积分的朋友解释：为什么一个项目“平均每年涨 5%”，但波动率很大时，10 年后大概率反而跌了？</p>
+      </div>
+      <div class="cta-row">
+        <button id="toggle-done-btn" type="button" class="btn btn-navy" data-lesson-key="ro-s05">
+          标记本节已完成（本地打卡）
+        </button>
+      </div>
+    </section>
+
+    <nav class="pager">
+      <a class="btn btn-soft" href="ro-s04.html">← 上一节：RO-S04</a>
+      <a class="btn btn-soft" href="../stages/stage01.html">返回本阶段目录</a>
+      <a class="btn btn-navy" href="ro-s06.html">下一节：RO-S06 →</a>
+    </nav>
+    
+    <footer class="disclaimer">本课程所有金融、能源或商业投资算例均标注为“教学演示”，仅用于辅助理解数学机制，不代表已核验文献结论或实证结果。</footer>
+  </main>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+  <script defer src="../assets/app.js"></script>
+</body>
+</html>

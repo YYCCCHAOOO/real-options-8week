@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RO-S10 值匹配（Value Matching）与平滑粘贴（Smooth Fit）的几何直觉 · 连续时间实物期权 · 8周轻量实战</title>
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="../index.html">连续时间实物期权 · 8周轻量实战</a>
+      <nav class="nav-links">
+        <a href="../index.html">8周总览</a>
+        <a href="../stages/stage01.html">Stage 1</a>
+        <a href="../stages/stage02.html">Stage 2</a>
+        <a href="../stages/stage03.html">Stage 3</a>
+        <a href="../stages/stage04.html">Stage 4</a>
+      </nav>
+    </div>
+  </header>
+  <main class="container">
+    
+    <p class="muted" style="margin:0 0 10px;">
+      <a href="../index.html">8周总览</a> /
+      <a href="../stages/stage02.html">Stage 2｜建模型、值匹配与平滑粘贴</a> /
+      RO-S10
+    </p>
+
+    <section class="card">
+      <div class="hero-meta" style="margin-bottom:10px;">
+        <span class="chip chip-navy">RO-S10 · 第 4 周 · 第 1 课</span>
+        <span class="chip chip-navy">预计 20 分钟</span>
+        <span class="chip chip-outline">骨架预览（待精修）</span>
+      </div>
+      <h1 style="margin:0 0 12px;font-size:1.35rem;color:var(--navy);line-height:1.35;">值匹配（Value Matching）与平滑粘贴（Smooth Fit）的几何直觉</h1>
+      <div class="highlight-box">
+        <b>1. 3 分钟直觉唤醒（一句话核心）</b>
+        <p style="margin:6px 0 0;">值匹配保证“跨过门槛时价值不跳崖”，平滑粘贴保证“价值曲线与行动收益曲线刚好相切，没有尖角折点”。</p>
+      </div>
+      <p style="margin:0 0 6px;"><b>它解决什么建模痛点：</b>解答最常见的困惑：一个自由边界问题有未知常数 A 和未知门槛 x* 两个未知数，为什么正好需要“函数值相等 + 一阶导数相等”这两个条件？</p>
+      <p style="margin:0;" class="muted"><b>课程衔接：</b>衔接 RO-S01 的切线与 RO-S09 的 ODE 通解。</p>
+    </section>
+
+    
+        <div class="notice-outline">
+          <b>骨架预览提示：</b>本节当前提供核心公式、学习定位与预热自测；后续逐阶段精修时将补齐详细白话拆解、完整教学演示算例与更多自测题。
+        </div>
+        
+
+    <section class="card">
+      <h2>2. 10 分钟核心公式与白话拆解</h2>
+      <p>【骨架预览 · 待下轮精修】本课通过画图反证法说明：如果门槛处出现向下折角或向上尖角，总能通过微调门槛或布朗运动高频穿越获利，从而推出必须平滑相切。</p>
+      
+        <div class="formula-block">
+          <div class="formula-title">自由边界双条件</div>
+          <div class="math-scroll">$$V(x^*) = v(x^*) - I \quad (\text{值匹配}),\qquad V'(x^*) = v'(x^*) \quad (\text{平滑粘贴})$$</div>
+          <p class="formula-read"><b>白话读法：</b>在最优门槛 x* 处，等待价值曲线和立即投资净现值曲线既相交又相切。</p>
+        </div>
+        
+      <div class="step-grid">
+        <div class="step-card">
+          <h3>待精修：两个未知数，两个方程</h3>
+          <p style="margin:4px 0 0;">未知数 = (A, x*)；方程 = 值匹配 + 平滑粘贴。</p>
+          <div class="step-meta"><b>实战口诀：</b>把两式联立先消去 A，得到关于 x* 的门槛方程。</div>
+          <div class="step-meta"><b>适用边界：</b>平滑粘贴是最优的必要条件（启发式），严格全局最优性仍需 Stage 3 的验证定理。</div>
+        </div>
+        </div>
+    </section>
+
+    
+
+    <section class="card">
+      <h2>4. 3 分钟防坑边界与常见误区</h2>
+      <div class="pitfall-box">
+        <b>顶刊与推导避坑提示</b>
+        <ul><li>把平滑粘贴当成“永远自动成立的公理”，忽略它在非光滑收益或奇异控制边界上的适用条件。</li></ul>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>5. 5 分钟轻量自测与 60 秒费曼复述</h2>
+      
+        <div class="quiz-card">
+          <div><b>Q1.</b> 【预热自测】值匹配和平滑粘贴分别约束了价值函数在门槛 x* 处的什么性质？</div>
+          <details>
+            <summary>展开参考答案与解析</summary>
+            <p style="margin:8px 0 4px;"><b>参考答案：</b>值匹配约束连续性（函数值相等），平滑粘贴约束 C¹ 光滑性（一阶导数/斜率相等）。</p>
+            <p style="margin:4px 0;"><b>解析：</b>二者联立决定未知系数与自由边界位置。</p>
+            <p style="margin:4px 0 0;" class="muted"><b>常见失误：</b>把平滑粘贴记成二阶导数相等。</p>
+          </details>
+        </div>
+        
+      <div class="highlight-box" style="margin-top:14px;">
+        <b>60 秒闭卷费曼复述</b>
+        <p style="margin:6px 0 0;">用画图直觉说明：为什么在最优投资门槛处，等待曲线不能“斜着撞穿”立即投资直线？</p>
+      </div>
+      <div class="cta-row">
+        <button id="toggle-done-btn" type="button" class="btn btn-navy" data-lesson-key="ro-s10">
+          标记本节已完成（本地打卡）
+        </button>
+      </div>
+    </section>
+
+    <nav class="pager">
+      <a class="btn btn-soft" href="ro-s09.html">← 上一节：RO-S09</a>
+      <a class="btn btn-soft" href="../stages/stage02.html">返回本阶段目录</a>
+      <a class="btn btn-navy" href="ro-s11.html">下一节：RO-S11 →</a>
+    </nav>
+    
+    <footer class="disclaimer">本课程所有金融、能源或商业投资算例均标注为“教学演示”，仅用于辅助理解数学机制，不代表已核验文献结论或实证结果。</footer>
+  </main>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+  <script defer src="../assets/app.js"></script>
+</body>
+</html>

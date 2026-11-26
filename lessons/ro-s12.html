@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RO-S12 反射边界与下限保证（Floor Guarantee）的标准组件组装 · 连续时间实物期权 · 8周轻量实战</title>
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="../index.html">连续时间实物期权 · 8周轻量实战</a>
+      <nav class="nav-links">
+        <a href="../index.html">8周总览</a>
+        <a href="../stages/stage01.html">Stage 1</a>
+        <a href="../stages/stage02.html">Stage 2</a>
+        <a href="../stages/stage03.html">Stage 3</a>
+        <a href="../stages/stage04.html">Stage 4</a>
+      </nav>
+    </div>
+  </header>
+  <main class="container">
+    
+    <p class="muted" style="margin:0 0 10px;">
+      <a href="../index.html">8周总览</a> /
+      <a href="../stages/stage02.html">Stage 2｜建模型、值匹配与平滑粘贴</a> /
+      RO-S12
+    </p>
+
+    <section class="card">
+      <div class="hero-meta" style="margin-bottom:10px;">
+        <span class="chip chip-navy">RO-S12 · 第 4 周 · 第 3 课</span>
+        <span class="chip chip-navy">预计 22 分钟</span>
+        <span class="chip chip-outline">骨架预览（待精修）</span>
+      </div>
+      <h1 style="margin:0 0 12px;font-size:1.35rem;color:var(--navy);line-height:1.35;">反射边界与下限保证（Floor Guarantee）的标准组件组装</h1>
+      <div class="highlight-box">
+        <b>1. 3 分钟直觉唤醒（一句话核心）</b>
+        <p style="margin:6px 0 0;">当状态变量存在下限反射或政府保底补贴时，通解里必须同时保留 A x^β 和 B x^α 两项，用下边界的平滑/反射条件把组件拼进整篇论文。</p>
+      </div>
+      <p style="margin:0 0 6px;"><b>它解决什么建模痛点：</b>直接对接 B003 级别论文中常见的“反射过程（Reflecting GBM）”与“收益下限保证（Revenue Floor）”，看懂为什么装机价值 v_R(x) 和 v_C(x) 会多出幂函数调整项。</p>
+      <p style="margin:0;" class="muted"><b>课程衔接：</b>为 Stage 3 的局部时 Neumann 条件和 B003 论文对比结构做好铺垫。</p>
+    </section>
+
+    
+        <div class="notice-outline">
+          <b>骨架预览提示：</b>本节当前提供核心公式、学习定位与预热自测；后续逐阶段精修时将补齐详细白话拆解、完整教学演示算例与更多自测题。
+        </div>
+        
+
+    <section class="card">
+      <h2>2. 10 分钟核心公式与白话拆解</h2>
+      <p>【骨架预览 · 待下轮精修】本课对比“价格托底补贴（Cash-flow floor）”与“需求反射壁（Reflecting barrier）”两种常见组件的 ODE 解法与系数 B 的经济学含义。</p>
+      
+        <div class="formula-block">
+          <div class="formula-title">带下限组件的标准现值结构</div>
+          <div class="math-scroll">$$v(x) = \frac{x}{r - \mu} + B x^\alpha \quad (x \ge \underline{x},\; \alpha < 0)$$</div>
+          <p class="formula-read"><b>白话读法：</b>在高于下限的区域，价值 = 无干预永续现值 + 下限保护带来的看跌期权式增值 B x^α。</p>
+        </div>
+        
+      <div class="step-grid">
+        <div class="step-card">
+          <h3>待精修：反射边界的边界条件 V&#x27;(a) = 0</h3>
+          <p style="margin:4px 0 0;">在反射下界 a 处施加一阶导数为零（Neumann 条件），立刻解出系数 B。</p>
+          <div class="step-meta"><b>实战口诀：</b>识别论文里的“标准积木块”，不要每次从零发明。</div>
+          <div class="step-meta"><b>适用边界：</b>反射过程与分段收益下限的底层机制不同，不能混用边界条件（B003 的核心切口之一）。</div>
+        </div>
+        </div>
+    </section>
+
+    
+
+    <section class="card">
+      <h2>4. 3 分钟防坑边界与常见误区</h2>
+      <div class="pitfall-box">
+        <b>顶刊与推导避坑提示</b>
+        <ul><li>混淆“现金流设下限 max(X_t, F)”与“状态过程本身在 F 处反射”：前者不改变 X_t 轨迹，后者改变轨迹且引入局部时。</li></ul>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>5. 5 分钟轻量自测与 60 秒费曼复述</h2>
+      
+        <div class="quiz-card">
+          <div><b>Q1.</b> 【预热自测】在状态过程下界反射模型中，x &gt; a 区域的现值公式为何保留 x^α（α &lt; 0）而舍弃 x^β（β &gt; 1）？</div>
+          <details>
+            <summary>展开参考答案与解析</summary>
+            <p style="margin:8px 0 4px;"><b>参考答案：</b>因为当 x → +∞ 时，下界反射几乎不再触发，保护价值应趋于 0；只有 α &lt; 0 的 x^α 满足 x → +∞ 时归零，而 x^β 会发散。</p>
+            <p style="margin:4px 0;"><b>解析：</b>无穷远增长条件（无泡沫条件）决定舍去发散项。</p>
+            <p style="margin:4px 0 0;" class="muted"><b>常见失误：</b>记混 α 和 β 在 x → 0 与 x → ∞ 时的极限行为。</p>
+          </details>
+        </div>
+        
+      <div class="highlight-box" style="margin-top:14px;">
+        <b>60 秒闭卷费曼复述</b>
+        <p style="margin:6px 0 0;">用一句话区分“给现金流加保底补贴”和“把状态过程本身在下界反射”有什么本质区别。</p>
+      </div>
+      <div class="cta-row">
+        <button id="toggle-done-btn" type="button" class="btn btn-navy" data-lesson-key="ro-s12">
+          标记本节已完成（本地打卡）
+        </button>
+      </div>
+    </section>
+
+    <nav class="pager">
+      <a class="btn btn-soft" href="ro-s11.html">← 上一节：RO-S11</a>
+      <a class="btn btn-soft" href="../stages/stage02.html">返回本阶段目录</a>
+      <a class="btn btn-navy" href="ro-r02.html">下一节：RO-R02 →</a>
+    </nav>
+    
+    <footer class="disclaimer">本课程所有金融、能源或商业投资算例均标注为“教学演示”，仅用于辅助理解数学机制，不代表已核验文献结论或实证结果。</footer>
+  </main>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+  <script defer src="../assets/app.js"></script>
+</body>
+</html>

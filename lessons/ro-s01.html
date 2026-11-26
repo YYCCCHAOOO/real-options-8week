@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RO-S01 导数、弹性与二阶曲率：给平滑粘贴和凸性判号打底 · 连续时间实物期权 · 8周轻量实战</title>
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="../index.html">连续时间实物期权 · 8周轻量实战</a>
+      <nav class="nav-links">
+        <a href="../index.html">8周总览</a>
+        <a href="../stages/stage01.html">Stage 1</a>
+        <a href="../stages/stage02.html">Stage 2</a>
+        <a href="../stages/stage03.html">Stage 3</a>
+        <a href="../stages/stage04.html">Stage 4</a>
+      </nav>
+    </div>
+  </header>
+  <main class="container">
+    
+    <p class="muted" style="margin:0 0 10px;">
+      <a href="../index.html">8周总览</a> /
+      <a href="../stages/stage01.html">Stage 1｜微积分、概率与 ODE 关键底座</a> /
+      RO-S01
+    </p>
+
+    <section class="card">
+      <div class="hero-meta" style="margin-bottom:10px;">
+        <span class="chip chip-navy">RO-S01 · 第 1 周 · 第 1 课</span>
+        <span class="chip chip-navy">预计 20 分钟</span>
+        <span class="chip chip-ready">完整微课</span>
+      </div>
+      <h1 style="margin:0 0 12px;font-size:1.35rem;color:var(--navy);line-height:1.35;">导数、弹性与二阶曲率：给平滑粘贴和凸性判号打底</h1>
+      <div class="highlight-box">
+        <b>1. 3 分钟直觉唤醒（一句话核心）</b>
+        <p style="margin:6px 0 0;">一阶导数告诉你“多涨一点值多少钱”（斜率），二阶导数告诉你“斜率是不是越涨越快”（弯曲方向），而弹性把它们变成无量纲的百分比倍数。</p>
+      </div>
+      <p style="margin:0 0 6px;"><b>它解决什么建模痛点：</b>实物期权里反复出现两件核心事：一是在投资门槛处要求价值曲线“平滑相切”（用到一阶导数相等），二是判断等待价值为何随波动率上升而增加、以及证明辅助函数有唯一零点（全靠二阶导数决定凸性）。</p>
+      <p style="margin:0;" class="muted"><b>课程衔接：</b>这是整个 8 周计划的起点：先用 20 分钟把大学微积分里最常用的三个概念与期权图像绑定起来。</p>
+    </section>
+
+    
+
+    <section class="card">
+      <h2>2. 10 分钟核心公式与白话拆解</h2>
+      <p>把一个项目的价值函数 V(x) 想象成一条随市场需求 x 变化的山坡。一阶导数 V&#x27;(x) 是你脚下的坡度：需求 x 每多 1 单位，项目价值大概多 V&#x27;(x)。</p><p>二阶导数 V&#x27;&#x27;(x) 是坡度的变化率，也就是“弯不弯”。如果 V&#x27;&#x27;(x) &gt; 0，山坡向上弯（像开口向上的碗，称为凸函数）：市场好时你赚得越来越快，市场差时你跌得越来越慢，这就是期权“下有底、上不封顶”的几何形状。</p><p>弹性 η = x V&#x27;(x) / V(x) 回答“需求涨 1%，价值涨百分之几”。幂函数 V(x) = A x^β 的弹性恒等于常数 β——这正是后面欧拉方程总爱长成 A x^β 的根本原因。</p>
+      
+        <div class="formula-block">
+          <div class="formula-title">幂函数的导数与弹性</div>
+          <div class="math-scroll">$$V(x) = A x^\beta \implies V'(x) = \beta A x^{\beta-1},\quad V''(x) = \beta(\beta-1) A x^{\beta-2},\quad \frac{x V'(x)}{V(x)} = \beta$$</div>
+          <p class="formula-read"><b>白话读法：</b>当价值函数是幂函数 A x^β（其中 A&gt;0, x&gt;0）时，每求一次导就掉下来一个系数并降一次幂；当 β &gt; 1 时，β(β-1) &gt; 0，说明函数严格向上弯曲（严格凸），且它的弹性处处等于 β。</p>
+        </div>
+        
+        <div class="formula-block">
+          <div class="formula-title">凸函数的切线在下性质</div>
+          <div class="math-scroll">$$V''(x) > 0 \implies V(y) \ge V(x) + V'(x)(y - x)$$</div>
+          <p class="formula-read"><b>白话读法：</b>开口向上的光滑函数，图像永远在任意一点切线的上方。后续 Stage 3 用凸函数判号、Stage 2 验证等待价值大于立即执行价值，底层靠的都是这条几何性质。</p>
+        </div>
+        
+      <div class="step-grid">
+        <div class="step-card">
+          <h3>第 1 步：把“边际增量”写成一阶导数</h3>
+          <p style="margin:4px 0 0;">市场状态从 x 变为 x + Δx，价值变化 ΔV ≈ V&#x27;(x)Δx。在最优停止门槛 x* 处，如果再等一丁点带来的边际收益不等于立刻行动的边际收益，就说明 x* 还能调得更好。</p>
+          <div class="step-meta"><b>实战口诀：</b>见到 V&#x27;(x*) = 立即行动收益的导数，立刻反应这是“斜率相切”。</div>
+          <div class="step-meta"><b>适用边界：</b>函数在 x* 处必须可微；有尖角（折点）的地方不能直接写 V&#x27;(x*)。</div>
+        </div>
+        
+        <div class="step-card">
+          <h3>第 2 步：用二阶导数识别“期权凸性”</h3>
+          <p style="margin:4px 0 0;">对 V(x) = A x^β 求两次导得到 V&#x27;&#x27;(x) = β(β-1) A x^{β-2}。只要 A &gt; 0 且 β &gt; 1，就有 V&#x27;&#x27;(x) &gt; 0，图形严格向上弯。</p>
+          <div class="step-meta"><b>实战口诀：</b>以后看到 β &gt; 1 且系数为正，心里立刻画出一个向上弯曲的期权价值曲线。</div>
+          <div class="step-meta"><b>适用边界：</b>如果 0 &lt; β &lt; 1，则 β(β-1) &lt; 0，函数反而是凹的（边际递减）。</div>
+        </div>
+        
+        <div class="step-card">
+          <h3>第 3 步：用弹性读懂比例关系</h3>
+          <p style="margin:4px 0 0;">在最优门槛处常见条件 x* V&#x27;(x*) = β V(x*)，把 x* 移过去就是弹性等于 β。这个关系能让你一眼消掉未知常数 A。</p>
+          <div class="step-meta"><b>实战口诀：</b>消元技巧：用 V&#x27;(x)/V(x) = β/x 可以直接绕开待定系数 A。</div>
+          <div class="step-meta"><b>适用边界：</b>仅对单项幂函数 A x^β 成立；若有两项 A x^β + B x^α，弹性不再是常数。</div>
+        </div>
+        </div>
+    </section>
+
+    
+        <section class="card">
+          <h2>3. 5 分钟最小算例（教学演示）</h2>
+          <div class="example-box">
+            <h3>【教学演示】幂函数期权价值的斜率与凸性检查</h3>
+            <p>（教学演示算例）假设某待建光伏项目的等待期权价值写成 V(x) = 2 x^2（这里 A = 2, β = 2），而立即投资的净收益是 x - 1（直线，斜率恒为 1）。</p>
+            <ol style="margin:8px 0 0;padding-left:20px;"><li>求一阶导数：V&#x27;(x) = 4x；立即投资收益的导数为 1。</li><li>求二阶导数：V&#x27;&#x27;(x) = 4 &gt; 0，说明等待价值严格向上弯曲（严格凸）。</li><li>找两者斜率相等的点：令 4x = 1，得 x = 0.25；但此时 V(0.25) = 0.125，而立即收益是 0.25 - 1 = -0.75，说明常数 A = 2 并不是从自由边界解出来的——在 Stage 2 里，A 和 x* 会通过“值相等 + 斜率相等”一起解出来。</li></ol>
+          </div>
+        </section>
+        
+
+    <section class="card">
+      <h2>4. 3 分钟防坑边界与常见误区</h2>
+      <div class="pitfall-box">
+        <b>顶刊与推导避坑提示</b>
+        <ul><li>把“V&#x27;(x) &gt; 0（单调递增）”和“V&#x27;&#x27;(x) &gt; 0（凸函数）”混为一谈：直线 y = 2x 也单调递增，但它没有凸性（V&#x27;&#x27; = 0），也就没有波动率带来的期权溢价。</li><li>误以为 V&#x27;&#x27;(x) &gt; 0 就一定有最小值点：像 V(x) = x^2 在 x &gt; 0 上处处递增且严格凸，在开区间 (0, ∞) 上并没有内部极小值，必须结合一阶导数是否变号来判断。</li></ul>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>5. 5 分钟轻量自测与 60 秒费曼复述</h2>
+      
+        <div class="quiz-card">
+          <div><b>Q1.</b> 对于函数 V(x) = A x^β（A &gt; 0, x &gt; 0），β 满足什么条件时，V(x) 既是递增的又是严格凸的？</div>
+          <details>
+            <summary>展开参考答案与解析</summary>
+            <p style="margin:8px 0 4px;"><b>参考答案：</b>β &gt; 1。</p>
+            <p style="margin:4px 0;"><b>解析：</b>一阶导数 β A x^{β-1} &gt; 0 需要 β &gt; 0；二阶导数 β(β-1) A x^{β-2} &gt; 0 需要 β &gt; 1 或 β &lt; 0。两者取交集得 β &gt; 1。</p>
+            <p style="margin:4px 0 0;" class="muted"><b>常见失误：</b>漏掉 β &gt; 1 的要求，误写成 β &gt; 0（当 0 &lt; β &lt; 1 时函数递增但为凹函数）。</p>
+          </details>
+        </div>
+        
+        <div class="quiz-card">
+          <div><b>Q2.</b> 为什么说“弹性等于常数 β”在解实物期权门槛时特别好用？</div>
+          <details>
+            <summary>展开参考答案与解析</summary>
+            <p style="margin:8px 0 4px;"><b>参考答案：</b>因为 x V&#x27;(x) / V(x) = β 会把待定系数 A 自动约掉，可以直接把值匹配和平滑粘贴合并成一个只含门槛 x* 的方程。</p>
+            <p style="margin:4px 0;"><b>解析：</b>当等待价值只有单项 A x^β 时，V(x*) 和 V&#x27;(x*) 都正比于 A，两式相除立刻消去 A。</p>
+            <p style="margin:4px 0 0;" class="muted"><b>常见失误：</b>在含有两项 A x^β + B x^α 的双边界问题里也直接套用单项弹性公式。</p>
+          </details>
+        </div>
+        
+        <div class="quiz-card">
+          <div><b>Q3.</b> 如果某辅助函数 G(z) 在区间 (0, ∞) 上满足 G&#x27;&#x27;(z) &gt; 0，且 G(0+) &gt; 0、G(1) = 0、G&#x27;(1) &lt; 0，它在 (0, 1) 内可能有零点吗？</div>
+          <details>
+            <summary>展开参考答案与解析</summary>
+            <p style="margin:8px 0 4px;"><b>参考答案：</b>不可能。</p>
+            <p style="margin:4px 0;"><b>解析：</b>因为 G 是严格凸函数，它的导数 G&#x27;(z) 严格递增。既然 G&#x27;(1) &lt; 0，那么在所有 z &lt; 1 处都有 G&#x27;(z) &lt; G&#x27;(1) &lt; 0，即 G 在 (0, 1] 上严格递减，从正数一路降到 G(1) = 0，因此 (0, 1) 内恒正。</p>
+            <p style="margin:4px 0 0;" class="muted"><b>常见失误：</b>只看两端点符号而不结合导数单调性，误以为 U 型曲线一定先降后升。</p>
+          </details>
+        </div>
+        
+      <div class="highlight-box" style="margin-top:14px;">
+        <b>60 秒闭卷费曼复述</b>
+        <p style="margin:6px 0 0;">不看笔记，用 3 句话说明 V&#x27;(x)、V&#x27;&#x27;(x) 和弹性 β 在期权价值曲线上分别长什么样。</p>
+      </div>
+      <div class="cta-row">
+        <button id="toggle-done-btn" type="button" class="btn btn-navy" data-lesson-key="ro-s01">
+          标记本节已完成（本地打卡）
+        </button>
+      </div>
+    </section>
+
+    <nav class="pager">
+      <a class="btn btn-soft" href="../index.html">← 返回 8 周总览</a>
+      <a class="btn btn-soft" href="../stages/stage01.html">返回本阶段目录</a>
+      <a class="btn btn-navy" href="ro-s02.html">下一节：RO-S02 →</a>
+    </nav>
+    
+    <footer class="disclaimer">本课程所有金融、能源或商业投资算例均标注为“教学演示”，仅用于辅助理解数学机制，不代表已核验文献结论或实证结果。</footer>
+  </main>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+  <script defer src="../assets/app.js"></script>
+</body>
+</html>

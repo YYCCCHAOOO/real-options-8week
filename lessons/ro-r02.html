@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RO-R02 Stage 2 建模通关复盘：第 1 层功力完整闭环 · 连续时间实物期权 · 8周轻量实战</title>
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="../index.html">连续时间实物期权 · 8周轻量实战</a>
+      <nav class="nav-links">
+        <a href="../index.html">8周总览</a>
+        <a href="../stages/stage01.html">Stage 1</a>
+        <a href="../stages/stage02.html">Stage 2</a>
+        <a href="../stages/stage03.html">Stage 3</a>
+        <a href="../stages/stage04.html">Stage 4</a>
+      </nav>
+    </div>
+  </header>
+  <main class="container">
+    
+    <p class="muted" style="margin:0 0 10px;">
+      <a href="../index.html">8周总览</a> /
+      <a href="../stages/stage02.html">Stage 2｜建模型、值匹配与平滑粘贴</a> /
+      RO-R02
+    </p>
+
+    <section class="card">
+      <div class="hero-meta" style="margin-bottom:10px;">
+        <span class="chip chip-navy">RO-R02 · 第 4 周末 · Stage 2 双周复盘</span>
+        <span class="chip chip-navy">预计 25 分钟</span>
+        <span class="chip chip-outline">骨架预览（待精修）</span>
+      </div>
+      <h1 style="margin:0 0 12px;font-size:1.35rem;color:var(--navy);line-height:1.35;">Stage 2 建模通关复盘：第 1 层功力完整闭环</h1>
+      <div class="highlight-box">
+        <b>1. 3 分钟直觉唤醒（一句话核心）</b>
+        <p style="margin:6px 0 0;">通关 Stage 2 意味着你已经能把一个连续时间投资故事翻译成 GBM → Itô → HJB ODE → 值匹配/平滑粘贴 → 门槛方程与标准组件。</p>
+      </div>
+      <p style="margin:0 0 6px;"><b>它解决什么建模痛点：</b>复盘第 1 层“套路化建模”的完整流程，准备跨入 Stage 3 的顶刊严格证明。</p>
+      <p style="margin:0;" class="muted"><b>课程衔接：</b>衔接 Stage 3（第 5–6 周）：从“算出来”升级到“严格证明它是全局最优”。</p>
+    </section>
+
+    
+        <div class="notice-outline">
+          <b>骨架预览提示：</b>本节当前提供核心公式、学习定位与预热自测；后续逐阶段精修时将补齐详细白话拆解、完整教学演示算例与更多自测题。
+        </div>
+        
+
+    <section class="card">
+      <h2>2. 10 分钟核心公式与白话拆解</h2>
+      <p>【骨架预览 · 待下轮精修】本复盘将提供一份第 1 层建模 6 步核对单与 5 道综合建模自测题。</p>
+      
+        <div class="formula-block">
+          <div class="formula-title">第 1 层建模闭环总式</div>
+          <div class="math-scroll">$$\text{GBM} \xrightarrow{\text{Itô}} \mathcal{L}V - rV = 0 \xrightarrow{\text{VM + SF}} (A, x^*) \xrightarrow{\text{隐函数}} \frac{dx^*}{d\theta}$$</div>
+          <p class="formula-read"><b>白话读法：</b>从随机过程到比较静态的一条龙流水线。</p>
+        </div>
+        
+      <div class="step-grid">
+        <div class="step-card">
+          <h3>待精修：Stage 2 核对单</h3>
+          <p style="margin:4px 0 0;">核对通解、边界条件、系数符号与经济直觉。</p>
+          <div class="step-meta"><b>实战口诀：</b>每一步先查量纲和极限情形（σ → 0, r → ∞）。</div>
+          <div class="step-meta"><b>适用边界：</b>此时得到的是“候选解”，尚未完成全局最优性验证。</div>
+        </div>
+        </div>
+    </section>
+
+    
+
+    <section class="card">
+      <h2>4. 3 分钟防坑边界与常见误区</h2>
+      <div class="pitfall-box">
+        <b>顶刊与推导避坑提示</b>
+        <ul><li>把候选解（满足值匹配+平滑粘贴）误当成已经证毕的全局最优解。</li></ul>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>5. 5 分钟轻量自测与 60 秒费曼复述</h2>
+      
+        <div class="quiz-card">
+          <div><b>Q1.</b> 【阶段预热】为什么说做完值匹配和平滑粘贴后，只完成了普通论文，离顶刊规范还差最关键一步？</div>
+          <details>
+            <summary>展开参考答案与解析</summary>
+            <p style="margin:8px 0 4px;"><b>参考答案：</b>因为值匹配和平滑粘贴只给出候选策略与候选值函数，必须通过 Verification Theorem 严格证明它在所有可行停止时间中达到全局最优。</p>
+            <p style="margin:4px 0;"><b>解析：</b>这正是 Stage 3 要解决的核心问题。</p>
+            <p style="margin:4px 0 0;" class="muted"><b>常见失误：</b>以为解出方程组就等于证明了最优性。</p>
+          </details>
+        </div>
+        
+      <div class="highlight-box" style="margin-top:14px;">
+        <b>60 秒闭卷费曼复述</b>
+        <p style="margin:6px 0 0;">口述从 GBM 写到最优门槛 x* 的 5 个标准步骤。</p>
+      </div>
+      <div class="cta-row">
+        <button id="toggle-done-btn" type="button" class="btn btn-navy" data-lesson-key="ro-r02">
+          标记本节已完成（本地打卡）
+        </button>
+      </div>
+    </section>
+
+    <nav class="pager">
+      <a class="btn btn-soft" href="ro-s12.html">← 上一节：RO-S12</a>
+      <a class="btn btn-soft" href="../stages/stage02.html">返回本阶段目录</a>
+      <a class="btn btn-navy" href="ro-s13.html">下一节：RO-S13 →</a>
+    </nav>
+    
+    <footer class="disclaimer">本课程所有金融、能源或商业投资算例均标注为“教学演示”，仅用于辅助理解数学机制，不代表已核验文献结论或实证结果。</footer>
+  </main>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+  <script defer src="../assets/app.js"></script>
+</body>
+</html>

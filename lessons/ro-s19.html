@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RO-S19 SymPy 符号推导与代数核验：把体力活交给计算机 · 连续时间实物期权 · 8周轻量实战</title>
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="../index.html">连续时间实物期权 · 8周轻量实战</a>
+      <nav class="nav-links">
+        <a href="../index.html">8周总览</a>
+        <a href="../stages/stage01.html">Stage 1</a>
+        <a href="../stages/stage02.html">Stage 2</a>
+        <a href="../stages/stage03.html">Stage 3</a>
+        <a href="../stages/stage04.html">Stage 4</a>
+      </nav>
+    </div>
+  </header>
+  <main class="container">
+    
+    <p class="muted" style="margin:0 0 10px;">
+      <a href="../index.html">8周总览</a> /
+      <a href="../stages/stage04.html">Stage 4｜现代数值校验、区间证书与论文实战</a> /
+      RO-S19
+    </p>
+
+    <section class="card">
+      <div class="hero-meta" style="margin-bottom:10px;">
+        <span class="chip chip-navy">RO-S19 · 第 7 周 · 第 1 课</span>
+        <span class="chip chip-navy">预计 22 分钟</span>
+        <span class="chip chip-outline">骨架预览（待精修）</span>
+      </div>
+      <h1 style="margin:0 0 12px;font-size:1.35rem;color:var(--navy);line-height:1.35;">SymPy 符号推导与代数核验：把体力活交给计算机</h1>
+      <div class="highlight-box">
+        <b>1. 3 分钟直觉唤醒（一句话核心）</b>
+        <p style="margin:6px 0 0;">手推负责想思路，SymPy 负责 100% 精准验算导数、代入 ODE 归零、消元和比较静态符号。</p>
+      </div>
+      <p style="margin:0 0 6px;"><b>它解决什么建模痛点：</b>避免 3 页纸手算到一个负号抄错导致后面全盘皆错。</p>
+      <p style="margin:0;" class="muted"><b>课程衔接：</b>直接为 Stage 1–3 的所有解析公式提供自动化符号检查。</p>
+    </section>
+
+    
+        <div class="notice-outline">
+          <b>骨架预览提示：</b>本节当前提供核心公式、学习定位与预热自测；后续逐阶段精修时将补齐详细白话拆解、完整教学演示算例与更多自测题。
+        </div>
+        
+
+    <section class="card">
+      <h2>2. 10 分钟核心公式与白话拆解</h2>
+      <p>【骨架预览 · 待后续精修】本课将提供最小可运行 SymPy 模板：定义符号 x, r, mu, sigma, beta，自动验证欧拉方程残差为 0、验证平滑粘贴与隐函数导数。</p>
+      
+        <div class="formula-block">
+          <div class="formula-title">符号残差零校验原则</div>
+          <div class="math-scroll">$$\text{simplify}\left(\frac{1}{2}\sigma^2 x^2 V'' + \mu x V' - r V\right) \equiv 0$$</div>
+          <p class="formula-read"><b>白话读法：</b>任何手推出来的候选值函数，第一件事就是喂给 SymPy 确认残差恒等于 0。</p>
+        </div>
+        
+      <div class="step-grid">
+        <div class="step-card">
+          <h3>待精修：SymPy 验算三件套</h3>
+          <p style="margin:4px 0 0;">① 验 ODE 残差；② 验边界条件；③ 对参数求偏导并做数值抽样双保险。</p>
+          <div class="step-meta"><b>实战口诀：</b>符号简化 + 100 组随机参数数值代入双重校验。</div>
+          <div class="step-meta"><b>适用边界：</b>SymPy 不会替你检查经济假设（如 r &gt; μ）是否满足，需手动加 positive=True 等假设。</div>
+        </div>
+        </div>
+    </section>
+
+    
+
+    <section class="card">
+      <h2>4. 3 分钟防坑边界与常见误区</h2>
+      <div class="pitfall-box">
+        <b>顶刊与推导避坑提示</b>
+        <ul><li>未给符号声明正负假设导致 simplify 化简不动。</li></ul>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>5. 5 分钟轻量自测与 60 秒费曼复述</h2>
+      
+        <div class="quiz-card">
+          <div><b>Q1.</b> 【预热自测】为什么建议在 SymPy 符号校验之外，再叠加一组随机参数的数值代入检验？</div>
+          <details>
+            <summary>展开参考答案与解析</summary>
+            <p style="margin:8px 0 4px;"><b>参考答案：</b>因为符号表达式复杂时可能存在隐含分支或定义域符号问题，随机数值抽检能瞬间暴露符号抄错或分支选错。</p>
+            <p style="margin:4px 0;"><b>解析：</b>符号 + 数值交叉验证成本极低但抓错率极高。</p>
+            <p style="margin:4px 0 0;" class="muted"><b>常见失误：</b>只看符号长得差不多就跳过数值验算。</p>
+          </details>
+        </div>
+        
+      <div class="highlight-box" style="margin-top:14px;">
+        <b>60 秒闭卷费曼复述</b>
+        <p style="margin:6px 0 0;">说清在论文推导里，SymPy 最擅长替你把关哪三件事？</p>
+      </div>
+      <div class="cta-row">
+        <button id="toggle-done-btn" type="button" class="btn btn-navy" data-lesson-key="ro-s19">
+          标记本节已完成（本地打卡）
+        </button>
+      </div>
+    </section>
+
+    <nav class="pager">
+      <a class="btn btn-soft" href="ro-r03.html">← 上一节：RO-R03</a>
+      <a class="btn btn-soft" href="../stages/stage04.html">返回本阶段目录</a>
+      <a class="btn btn-navy" href="ro-s20.html">下一节：RO-S20 →</a>
+    </nav>
+    
+    <footer class="disclaimer">本课程所有金融、能源或商业投资算例均标注为“教学演示”，仅用于辅助理解数学机制，不代表已核验文献结论或实证结果。</footer>
+  </main>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+  <script defer src="../assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RO-S18 凸分析判号与代数变形套路：构造 U 型函数 G(z) 与倒推法 · 连续时间实物期权 · 8周轻量实战</title>
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="../index.html">连续时间实物期权 · 8周轻量实战</a>
+      <nav class="nav-links">
+        <a href="../index.html">8周总览</a>
+        <a href="../stages/stage01.html">Stage 1</a>
+        <a href="../stages/stage02.html">Stage 2</a>
+        <a href="../stages/stage03.html">Stage 3</a>
+        <a href="../stages/stage04.html">Stage 4</a>
+      </nav>
+    </div>
+  </header>
+  <main class="container">
+    
+    <p class="muted" style="margin:0 0 10px;">
+      <a href="../index.html">8周总览</a> /
+      <a href="../stages/stage03.html">Stage 3｜严格验证定理与凸分析判号</a> /
+      RO-S18
+    </p>
+
+    <section class="card">
+      <div class="hero-meta" style="margin-bottom:10px;">
+        <span class="chip chip-navy">RO-S18 · 第 6 周 · 第 3 课</span>
+        <span class="chip chip-navy">预计 25 分钟</span>
+        <span class="chip chip-outline">骨架预览（待精修）</span>
+      </div>
+      <h1 style="margin:0 0 12px;font-size:1.35rem;color:var(--navy);line-height:1.35;">凸分析判号与代数变形套路：构造 U 型函数 G(z) 与倒推法</h1>
+      <div class="highlight-box">
+        <b>1. 3 分钟直觉唤醒（一句话核心）</b>
+        <p style="margin:6px 0 0;">顶刊定理里看起来神来之笔的“构造凸函数 G(z) 判号”，背后其实有一套固定的降维套路：无量纲化比值 z → 消掉参数 → 求导看凸性 → 用数值画图先验真再倒推。</p>
+      </div>
+      <p style="margin:0 0 6px;"><b>它解决什么建模痛点：</b>拆解第 3 层最吃灵气的代数不等式构造（如比较两个隐式门槛 b_R 与 b_C 的大小），告诉你研究者真实的工作流。</p>
+      <p style="margin:0;" class="muted"><b>课程衔接：</b>呼应 RO-S01 的凸函数性质，并自然引出 Stage 4 的 SymPy 与数值探索。</p>
+    </section>
+
+    
+        <div class="notice-outline">
+          <b>骨架预览提示：</b>本节当前提供核心公式、学习定位与预热自测；后续逐阶段精修时将补齐详细白话拆解、完整教学演示算例与更多自测题。
+        </div>
+        
+
+    <section class="card">
+      <h2>2. 10 分钟核心公式与白话拆解</h2>
+      <p>【骨架预览 · 待后续精修】本课拆解如何把双门槛比较问题化为在 b_C 处判断另一门槛方程 H_R(b_C) 的符号，再通过变量替换 z = b_C / a 消去尺度参数，寻找单调或 U 型辅助函数。</p>
+      
+        <div class="formula-block">
+          <div class="formula-title">门槛排序判号的通用转化</div>
+          <div class="math-scroll">$$H_R(b_R) = 0,\; H_R'(b) > 0 \implies \Big(b_R > b_C \iff H_R(b_C) < 0\Big)$$</div>
+          <p class="formula-read"><b>白话读法：</b>想比较两个都解不出来的隐式根 b_R 和 b_C，不用解它们：只需把 b_C 代进 H_R，再把 H_C(b_C)=0 代换消元，最后判一个单变量函数 G(z) 的正负号！</p>
+        </div>
+        
+      <div class="step-grid">
+        <div class="step-card">
+          <h3>待精修：研究者真实工作流</h3>
+          <p style="margin:4px 0 0;">先用 Python 扫参画图确认结论成立 → 寻找无量纲比值 z 降维 → 反复乘除正因子把复杂项凑成单调或凸函数。</p>
+          <div class="step-meta"><b>实战口诀：</b>永远先数值画图确认符号方向，再动手凑解析证明。</div>
+          <div class="step-meta"><b>适用边界：</b>当全局符号确实不唯一（存在反例区域）时，应转向 Stage 4 的局部存在性 + 区间算术证明。</div>
+        </div>
+        </div>
+    </section>
+
+    
+
+    <section class="card">
+      <h2>4. 3 分钟防坑边界与常见误区</h2>
+      <div class="pitfall-box">
+        <b>顶刊与推导避坑提示</b>
+        <ul><li>在不确定结论是否全局成立前就盲目硬凑几天解析证明。</li></ul>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>5. 5 分钟轻量自测与 60 秒费曼复述</h2>
+      
+        <div class="quiz-card">
+          <div><b>Q1.</b> 【预热自测】已知 H_R(b) 严格递增且 H_R(b_R) = 0，若能证明 H_R(b_C) &lt; 0，则 b_R 和 b_C 谁更大？</div>
+          <details>
+            <summary>展开参考答案与解析</summary>
+            <p style="margin:8px 0 4px;"><b>参考答案：</b>b_R &gt; b_C。</p>
+            <p style="margin:4px 0;"><b>解析：</b>因为 H_R 严格递增，H_R(b_C) &lt; 0 = H_R(b_R) 立即推出 b_C &lt; b_R。</p>
+            <p style="margin:4px 0 0;" class="muted"><b>常见失误：</b>忘记先确认 H_R 是递增还是递减，导致结论正好相反。</p>
+          </details>
+        </div>
+        
+      <div class="highlight-box" style="margin-top:14px;">
+        <b>60 秒闭卷费曼复述</b>
+        <p style="margin:6px 0 0;">讲清楚比较两个隐式门槛 b_R 和 b_C 大小时的“代入消元 + 无量纲化”标准思路。</p>
+      </div>
+      <div class="cta-row">
+        <button id="toggle-done-btn" type="button" class="btn btn-navy" data-lesson-key="ro-s18">
+          标记本节已完成（本地打卡）
+        </button>
+      </div>
+    </section>
+
+    <nav class="pager">
+      <a class="btn btn-soft" href="ro-s17.html">← 上一节：RO-S17</a>
+      <a class="btn btn-soft" href="../stages/stage03.html">返回本阶段目录</a>
+      <a class="btn btn-navy" href="ro-r03.html">下一节：RO-R03 →</a>
+    </nav>
+    
+    <footer class="disclaimer">本课程所有金融、能源或商业投资算例均标注为“教学演示”，仅用于辅助理解数学机制，不代表已核验文献结论或实证结果。</footer>
+  </main>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+  <script defer src="../assets/app.js"></script>
+</body>
+</html>

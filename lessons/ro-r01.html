@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RO-R01 Stage 1 底座通关复盘：6 块地基如何拼出连续时间世界 · 连续时间实物期权 · 8周轻量实战</title>
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="../index.html">连续时间实物期权 · 8周轻量实战</a>
+      <nav class="nav-links">
+        <a href="../index.html">8周总览</a>
+        <a href="../stages/stage01.html">Stage 1</a>
+        <a href="../stages/stage02.html">Stage 2</a>
+        <a href="../stages/stage03.html">Stage 3</a>
+        <a href="../stages/stage04.html">Stage 4</a>
+      </nav>
+    </div>
+  </header>
+  <main class="container">
+    
+    <p class="muted" style="margin:0 0 10px;">
+      <a href="../index.html">8周总览</a> /
+      <a href="../stages/stage01.html">Stage 1｜微积分、概率与 ODE 关键底座</a> /
+      RO-R01
+    </p>
+
+    <section class="card">
+      <div class="hero-meta" style="margin-bottom:10px;">
+        <span class="chip chip-navy">RO-R01 · 第 2 周末 · Stage 1 双周复盘</span>
+        <span class="chip chip-navy">预计 25 分钟</span>
+        <span class="chip chip-ready">完整微课</span>
+      </div>
+      <h1 style="margin:0 0 12px;font-size:1.35rem;color:var(--navy);line-height:1.35;">Stage 1 底座通关复盘：6 块地基如何拼出连续时间世界</h1>
+      <div class="highlight-box">
+        <b>1. 3 分钟直觉唤醒（一句话核心）</b>
+        <p style="margin:6px 0 0;">Stage 1 的 6 节课其实是一条严丝合缝的链条：凸性（S01）+ 比较静态（S02）+ 欧拉特征根（S03）+ 现值特解（S04）+ 对数正态修正（S05）+ GBM 与 (dW_t)²=dt（S06）。</p>
+      </div>
+      <p style="margin:0 0 6px;"><b>它解决什么建模痛点：</b>在进入 Stage 2 正式搭实物期权模型之前，用 25 分钟把 6 块地基焊成一张网，确认没有卡壳的盲区。</p>
+      <p style="margin:0;" class="muted"><b>课程衔接：</b>通关本复盘后，你就可以零障碍进入 Stage 2（第 3–4 周）的值匹配、平滑粘贴与自由边界求解。</p>
+    </section>
+
+    
+
+    <section class="card">
+      <h2>2. 10 分钟核心公式与白话拆解</h2>
+      <p>回看这 2 周，你并没有去刷厚厚的考研高数题海，而是精准拿下了连续时间建模真正反复调用的 6 个零件。</p><p>零件之间是互相咬合的：GBM 的 (dW_t)² = dt 会在下周通过 Itô 引理生出二阶项 ½σ²x²V&#x27;&#x27;，这就立刻变成你已经会解的欧拉方程 Q(γ) = 0；解出的 β &gt; 1 保证 V(x) = A x^β 严格凸；已建成项目的永续现值是特解 x/(r-μ)；而任何没有闭式解的门槛单调性，你已经会用隐函数公式 dx*/dθ = -H_θ / H_x 去判号。</p><p>如果你能独立答对下面 5 道综合题里的 4 道，Stage 1 就已经稳稳过关，可以直接开 Stage 2！</p>
+      
+        <div class="formula-block">
+          <div class="formula-title">Stage 1 核心公式总览表</div>
+          <div class="math-scroll">$$\text{① } \frac{dx^*}{d\theta} = -\frac{H_\theta}{H_x} \qquad \text{② } Q(\gamma) = \frac{1}{2}\sigma^2\gamma(\gamma-1)+\mu\gamma-r=0 \qquad \text{③ } v_p(x)=\frac{x}{r-\mu} \qquad \text{④ } (dW_t)^2=dt$$</div>
+          <p class="formula-read"><b>白话读法：</b>记住这 4 个核心公式和它们的直觉画面，就拿下了 Stage 1 的全部精华。</p>
+        </div>
+        
+      <div class="step-grid">
+        <div class="step-card">
+          <h3>自检清单 1：直觉与几何</h3>
+          <p style="margin:4px 0 0;">能否一眼区分 V&#x27; &gt; 0（递增）与 V&#x27;&#x27; &gt; 0（凸性），并说出为什么凸性带来期权溢价？</p>
+          <div class="step-meta"><b>实战口诀：</b>画图比背文字更可靠。</div>
+          <div class="step-meta"><b>适用边界：</b>区分单调性与凹凸性。</div>
+        </div>
+        
+        <div class="step-card">
+          <h3>自检清单 2：特征根与现值</h3>
+          <p style="margin:4px 0 0;">能否不查笔记，用 Q(0) 和 Q(1) 推出 β &gt; 1、α &lt; 0，并写出永续流 x - c 的特解？</p>
+          <div class="step-meta"><b>实战口诀：</b>始终检查无泡沫条件 r &gt; μ。</div>
+          <div class="step-meta"><b>适用边界：</b>常数项除以 r，增长项除以 r - μ。</div>
+        </div>
+        
+        <div class="step-card">
+          <h3>自检清单 3：随机过程直觉</h3>
+          <p style="margin:4px 0 0;">能否解释 GBM 闭式解里 -½σ²t 的由来，以及为什么短时间内随机冲击 √Δt 压过趋势项 Δt？</p>
+          <div class="step-meta"><b>实战口诀：</b>记住正态指数期望 E[e^Z] = exp(m + ½s²)。</div>
+          <div class="step-meta"><b>适用边界：</b>下周进入 Itô 引理时会直接复用。</div>
+        </div>
+        </div>
+    </section>
+
+    
+        <section class="card">
+          <h2>3. 5 分钟最小算例（教学演示）</h2>
+          <div class="example-box">
+            <h3>【教学演示】一口气串联 Stage 1 全部 6 课的微缩推演</h3>
+            <p>（教学演示算例）设需求 X_t 服从 GBM（r=0.06, μ=0.02, σ=0.20），投资成本 I = 100。</p>
+            <ol style="margin:8px 0 0;padding-left:20px;"><li>由 RO-S04：建成后永续现值为 V_proj(x) = x / (0.06 - 0.02) = 25x。</li><li>由 RO-S03：特征根 β = √3 ≈ 1.732，等待价值设为 A x^β（严格凸，RO-S01）。</li><li>提前预告 Stage 2：令等待价值和净收益 25x - 100 在门槛 x* 处值相等且斜率相等，立刻解出 25 x* = (β/(β-1)) × 100 ≈ 236.6，即 x* ≈ 9.46（远高于静态 NPV=0 的盈亏点 x=4）！</li></ol>
+          </div>
+        </section>
+        
+
+    <section class="card">
+      <h2>4. 3 分钟防坑边界与常见误区</h2>
+      <div class="pitfall-box">
+        <b>顶刊与推导避坑提示</b>
+        <ul><li>陷入“想把整本微积分/概率教材从头啃完再学实物期权”的完美主义陷阱：先用这 6 块核心底座跑通 Stage 2，遇到具体缺口再按需回头补，效率高得多。</li><li>只看懂推导不动手算一遍：至少亲手算一次 RO-S03 的特征根和 RO-S02 的隐函数偏导，手感和眼感完全不同。</li></ul>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>5. 5 分钟轻量自测与 60 秒费曼复述</h2>
+      
+        <div class="quiz-card">
+          <div><b>Q1.</b> 【综合 1】若等待期权 V(x) = A x^β（A &gt; 0, β &gt; 1），它的斜率和弯曲方向分别是什么？</div>
+          <details>
+            <summary>展开参考答案与解析</summary>
+            <p style="margin:8px 0 4px;"><b>参考答案：</b>斜率 V&#x27;(x) &gt; 0（递增），二阶导 V&#x27;&#x27;(x) &gt; 0（严格向上弯曲/严格凸）。</p>
+            <p style="margin:4px 0;"><b>解析：</b>RO-S01 核心结论。</p>
+            <p style="margin:4px 0 0;" class="muted"><b>常见失误：</b>漏掉 β &gt; 1 对严格凸性的决定作用。</p>
+          </details>
+        </div>
+        
+        <div class="quiz-card">
+          <div><b>Q2.</b> 【综合 2】某门槛方程 H(x*, r) = 0 满足 H_x &gt; 0 且 H_r &gt; 0，则折现率 r 升高时 x* 怎么变？</div>
+          <details>
+            <summary>展开参考答案与解析</summary>
+            <p style="margin:8px 0 4px;"><b>参考答案：</b>x* 严格下降（dx*/dr = -H_r / H_x &lt; 0）。</p>
+            <p style="margin:4px 0;"><b>解析：</b>RO-S02 隐函数比较静态公式。</p>
+            <p style="margin:4px 0 0;" class="muted"><b>常见失误：</b>漏掉负号。</p>
+          </details>
+        </div>
+        
+        <div class="quiz-card">
+          <div><b>Q3.</b> 【综合 3】写出 r = 0.08, μ = 0.04, σ = 0.20 时欧拉方程的特征二次方程，并判断两根所在区间。</div>
+          <details>
+            <summary>展开参考答案与解析</summary>
+            <p style="margin:8px 0 4px;"><b>参考答案：</b>0.02 γ(γ-1) + 0.04 γ - 0.08 = 0（即 γ² + γ - 4 = 0），正根 β = (-1+√17)/2 ≈ 1.56 &gt; 1，负根 α = (-1-√17)/2 ≈ -2.56 &lt; 0。</p>
+            <p style="margin:4px 0;"><b>解析：</b>RO-S03 特征方程与抛物线判根。</p>
+            <p style="margin:4px 0 0;" class="muted"><b>常见失误：</b>展开 γ(γ-1) 时漏掉 -γ 项。</p>
+          </details>
+        </div>
+        
+        <div class="quiz-card">
+          <div><b>Q4.</b> 【综合 4】在 GBM 中，为什么 E[X_t] = x e^{μt} 但 ln(X_t/x) 的均值是 (μ - ½σ²)t？</div>
+          <details>
+            <summary>展开参考答案与解析</summary>
+            <p style="margin:8px 0 4px;"><b>参考答案：</b>因为指数函数严格凸，E[exp(σW_t)] = exp(½σ²t) &gt; 1，必须减去 ½σ²t 才能使算术期望保持 x e^{μt}。</p>
+            <p style="margin:4px 0;"><b>解析：</b>RO-S05 对数正态均值与波动率拖累。</p>
+            <p style="margin:4px 0 0;" class="muted"><b>常见失误：</b>把均值和中位数的增长率混为一谈。</p>
+          </details>
+        </div>
+        
+        <div class="quiz-card">
+          <div><b>Q5.</b> 【综合 5】为什么说 (dW_t)² = dt 是连接随机过程和二阶欧拉方程的桥梁？</div>
+          <details>
+            <summary>展开参考答案与解析</summary>
+            <p style="margin:8px 0 4px;"><b>参考答案：</b>因为展开 dV(X_t) 的二阶 Taylor 项时，(dX_t)² = σ² X_t² (dW_t)² = σ² X_t² dt 不会消失，从而直接产生 ODE 里的 ½σ²x²V&#x27;&#x27; 项。</p>
+            <p style="margin:4px 0;"><b>解析：</b>RO-S06 与 Stage 2 Itô 引理的核心衔接。</p>
+            <p style="margin:4px 0 0;" class="muted"><b>常见失误：</b>把随机微积分当成普通微积分直接忽略二阶项。</p>
+          </details>
+        </div>
+        
+      <div class="highlight-box" style="margin-top:14px;">
+        <b>60 秒闭卷费曼复述</b>
+        <p style="margin:6px 0 0;">用 90 秒不看资料，把“GBM → (dW_t)²=dt → 二阶欧拉方程 → β &gt; 1 凸性 → 永续现值特解 → 隐函数比较静态”串成一个完整故事。</p>
+      </div>
+      <div class="cta-row">
+        <button id="toggle-done-btn" type="button" class="btn btn-navy" data-lesson-key="ro-r01">
+          标记本节已完成（本地打卡）
+        </button>
+      </div>
+    </section>
+
+    <nav class="pager">
+      <a class="btn btn-soft" href="ro-s06.html">← 上一节：RO-S06</a>
+      <a class="btn btn-soft" href="../stages/stage01.html">返回本阶段目录</a>
+      <a class="btn btn-navy" href="ro-s07.html">下一节：RO-S07 →</a>
+    </nav>
+    
+    <footer class="disclaimer">本课程所有金融、能源或商业投资算例均标注为“教学演示”，仅用于辅助理解数学机制，不代表已核验文献结论或实证结果。</footer>
+  </main>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+  <script defer src="../assets/app.js"></script>
+</body>
+</html>

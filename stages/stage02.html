@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stage 2｜建模型、值匹配与平滑粘贴 · 连续时间实物期权 · 8周轻量实战</title>
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="../index.html">连续时间实物期权 · 8周轻量实战</a>
+      <nav class="nav-links">
+        <a href="../index.html">8周总览</a>
+        <a href="../stages/stage01.html">Stage 1</a>
+        <a href="../stages/stage02.html">Stage 2</a>
+        <a href="../stages/stage03.html">Stage 3</a>
+        <a href="../stages/stage04.html">Stage 4</a>
+      </nav>
+    </div>
+  </header>
+  <main class="container">
+    
+    <p class="muted" style="margin:0 0 10px;"><a href="../index.html">← 返回 8 周总览</a></p>
+    <section class="hero">
+      <div class="hero-meta">
+        <span class="chip chip-light">第 3–4 周</span>
+        <span class="chip chip-light">第 1 层功力</span>
+        <span class="chip chip-outline">结构骨架已就绪（待下轮精修）</span>
+      </div>
+      <h1>Stage 2｜建模型、值匹配与平滑粘贴</h1>
+      <p>对应第 1 层功力（Dixit &amp; Pindyck 经典套路）：学会把商业/投资故事翻译成 GBM、Itô 引理、HJB 方程、值匹配与平滑粘贴条件，并掌握反射边界与下限保证的标准组件。</p>
+    </section>
+
+    
+        <div class="notice-outline">
+          <b>当前阶段状态：结构骨架已就绪（待后续逐阶段精修）</b><br>
+          本阶段已包含全部 6 节微课与双周复盘的学习目标、核心公式预览与预热自测；完整推导、教学演示算例与代码模板将在下一轮原地扩充，且不会覆盖你的学习打卡记录。
+        </div>
+        
+
+    <section class="card">
+      <h2>本阶段核心目标</h2>
+      <ul style="margin:0;padding-left:20px;"><li>会用 Itô 引理的工程读法，把 dX_t 直接转成价值函数的二阶 ODE。</li><li>理解值匹配（Value Matching）与平滑粘贴（Smooth Fit）的几何与经济直觉。</li><li>能独立解出经典单阈值最优停止门槛 x* 与期权倍数 β/(β-1)。</li><li>认识反射边界与下限保证（Floor Guarantee）在实物期权模型中的组装方式。</li></ul>
+    </section>
+
+    <section class="card">
+      <h2>本阶段课时与复盘（共 6 课 + 1 复盘）</h2>
+      <div class="lesson-list">
+            <a class="lesson-item" data-lesson-item="ro-s07" href="../lessons/ro-s07.html">
+              <div class="lesson-item-main">
+                <div class="lesson-code">RO-S07 · 第 3 周 · 第 1 课</div>
+                <div class="lesson-title">实物期权核心直觉：等待价值 vs 静态 NPV</div>
+                <div class="lesson-sub">当投资不可逆且未来不确定时，立即投资会杀死“继续观察的等待期权”，因此最优行动门槛远高于静态 NPV = 0。</div>
+              </div>
+              <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0;">
+                <span class="chip chip-navy">20 分钟</span>
+                <span class="muted" style="font-size:0.78rem;" data-done-badge>未开始</span>
+              </div>
+            </a>
+            
+            <a class="lesson-item" data-lesson-item="ro-s08" href="../lessons/ro-s08.html">
+              <div class="lesson-item-main">
+                <div class="lesson-code">RO-S08 · 第 3 周 · 第 2 课</div>
+                <div class="lesson-title">Itô 引理的工程读法：二阶项从哪来</div>
+                <div class="lesson-sub">Itô 引理就是把普通微积分的链式法则多保留一项二阶 Taylor 展开，再把 (dW_t)² 替换成 dt。</div>
+              </div>
+              <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0;">
+                <span class="chip chip-navy">22 分钟</span>
+                <span class="muted" style="font-size:0.78rem;" data-done-badge>未开始</span>
+              </div>
+            </a>
+            
+            <a class="lesson-item" data-lesson-item="ro-s09" href="../lessons/ro-s09.html">
+              <div class="lesson-item-main">
+                <div class="lesson-code">RO-S09 · 第 3 周 · 第 3 课</div>
+                <div class="lesson-title">从离散 Δt 到连续时间 HJB 方程与欧拉 ODE</div>
+                <div class="lesson-sub">在等待区，要求期望资本利得率等于无风险折现率 r，把 Itô 引理取期望后令 Δt → 0，就立刻得到 RO-S03 学过的二阶欧拉方程。</div>
+              </div>
+              <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0;">
+                <span class="chip chip-navy">22 分钟</span>
+                <span class="muted" style="font-size:0.78rem;" data-done-badge>未开始</span>
+              </div>
+            </a>
+            
+            <a class="lesson-item" data-lesson-item="ro-s10" href="../lessons/ro-s10.html">
+              <div class="lesson-item-main">
+                <div class="lesson-code">RO-S10 · 第 4 周 · 第 1 课</div>
+                <div class="lesson-title">值匹配（Value Matching）与平滑粘贴（Smooth Fit）的几何直觉</div>
+                <div class="lesson-sub">值匹配保证“跨过门槛时价值不跳崖”，平滑粘贴保证“价值曲线与行动收益曲线刚好相切，没有尖角折点”。</div>
+              </div>
+              <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0;">
+                <span class="chip chip-navy">20 分钟</span>
+                <span class="muted" style="font-size:0.78rem;" data-done-badge>未开始</span>
+              </div>
+            </a>
+            
+            <a class="lesson-item" data-lesson-item="ro-s11" href="../lessons/ro-s11.html">
+              <div class="lesson-item-main">
+                <div class="lesson-code">RO-S11 · 第 4 周 · 第 2 课</div>
+                <div class="lesson-title">经典单阈值最优停止全流程：从 x* 到期权倍数 β/(β-1)</div>
+                <div class="lesson-sub">把 V(x)=Ax^β 代入值匹配与平滑粘贴，三行代数就解出实物期权最著名的公式：x* / (r-μ) = [β/(β-1)] · I。</div>
+              </div>
+              <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0;">
+                <span class="chip chip-navy">25 分钟</span>
+                <span class="muted" style="font-size:0.78rem;" data-done-badge>未开始</span>
+              </div>
+            </a>
+            
+            <a class="lesson-item" data-lesson-item="ro-s12" href="../lessons/ro-s12.html">
+              <div class="lesson-item-main">
+                <div class="lesson-code">RO-S12 · 第 4 周 · 第 3 课</div>
+                <div class="lesson-title">反射边界与下限保证（Floor Guarantee）的标准组件组装</div>
+                <div class="lesson-sub">当状态变量存在下限反射或政府保底补贴时，通解里必须同时保留 A x^β 和 B x^α 两项，用下边界的平滑/反射条件把组件拼进整篇论文。</div>
+              </div>
+              <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0;">
+                <span class="chip chip-navy">22 分钟</span>
+                <span class="muted" style="font-size:0.78rem;" data-done-badge>未开始</span>
+              </div>
+            </a>
+            
+            <a class="lesson-item" data-lesson-item="ro-r02" href="../lessons/ro-r02.html">
+              <div class="lesson-item-main">
+                <div class="lesson-code">RO-R02 · 第 4 周末 · Stage 2 双周复盘</div>
+                <div class="lesson-title">Stage 2 建模通关复盘：第 1 层功力完整闭环</div>
+                <div class="lesson-sub">通关 Stage 2 意味着你已经能把一个连续时间投资故事翻译成 GBM → Itô → HJB ODE → 值匹配/平滑粘贴 → 门槛方程与标准组件。</div>
+              </div>
+              <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0;">
+                <span class="chip chip-navy">双周复盘</span>
+                <span class="muted" style="font-size:0.78rem;" data-done-badge>未开始</span>
+              </div>
+            </a>
+            </div>
+    </section>
+    
+    <footer class="disclaimer">本课程所有金融、能源或商业投资算例均标注为“教学演示”，仅用于辅助理解数学机制，不代表已核验文献结论或实证结果。</footer>
+  </main>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+  <script defer src="../assets/app.js"></script>
+</body>
+</html>

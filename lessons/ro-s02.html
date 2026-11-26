@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RO-S02 偏导、隐函数定理与比较静态：门槛随参数往哪边动 · 连续时间实物期权 · 8周轻量实战</title>
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="../index.html">连续时间实物期权 · 8周轻量实战</a>
+      <nav class="nav-links">
+        <a href="../index.html">8周总览</a>
+        <a href="../stages/stage01.html">Stage 1</a>
+        <a href="../stages/stage02.html">Stage 2</a>
+        <a href="../stages/stage03.html">Stage 3</a>
+        <a href="../stages/stage04.html">Stage 4</a>
+      </nav>
+    </div>
+  </header>
+  <main class="container">
+    
+    <p class="muted" style="margin:0 0 10px;">
+      <a href="../index.html">8周总览</a> /
+      <a href="../stages/stage01.html">Stage 1｜微积分、概率与 ODE 关键底座</a> /
+      RO-S02
+    </p>
+
+    <section class="card">
+      <div class="hero-meta" style="margin-bottom:10px;">
+        <span class="chip chip-navy">RO-S02 · 第 1 周 · 第 2 课</span>
+        <span class="chip chip-navy">预计 22 分钟</span>
+        <span class="chip chip-ready">完整微课</span>
+      </div>
+      <h1 style="margin:0 0 12px;font-size:1.35rem;color:var(--navy);line-height:1.35;">偏导、隐函数定理与比较静态：门槛随参数往哪边动</h1>
+      <div class="highlight-box">
+        <b>1. 3 分钟直觉唤醒（一句话核心）</b>
+        <p style="margin:6px 0 0;">当最优门槛 x* 没法写成显式公式，只能满足隐式方程 H(x*, θ) = 0 时，隐函数定理用一句 dx*/dθ = -H_θ / H_x 就能直接判出门槛是升还是降。</p>
+      </div>
+      <p style="margin:0 0 6px;"><b>它解决什么建模痛点：</b>高水平实物期权论文（如 B003）里，最优门槛 b_R 或 b_C 往往藏在复杂的非线性方程 H(b, θ) = 0 里，根本解不出闭式表达式。但审稿人最关心的恰恰是“波动率 σ 或成本 C 上升时，门槛怎么变”——这就是隐函数比较静态的主战场。</p>
+      <p style="margin:0;" class="muted"><b>课程衔接：</b>承接 RO-S01 的一阶导数，把单变量求导推广到“内生门槛 x* + 外生参数 θ”的双变量联动。</p>
+    </section>
+
+    
+
+    <section class="card">
+      <h2>2. 10 分钟核心公式与白话拆解</h2>
+      <p>偏导数 H_x 就是“假装参数 θ 冻结不动，只晃动门槛 x 时，方程左边 H 变化多快”；偏导数 H_θ 则是“假装门槛 x 冻结不动，只调大参数 θ 时，H 变化多快”。</p><p>因为最优门槛必须始终满足平衡条件 H(x*(θ), θ) = 0，所以当参数 θ 动了一小步 dθ 把天平弄偏了（偏了 H_θ dθ），门槛 x* 必须立刻反向挪动 dx* 把天平拉回零（补回 H_x dx*）。</p><p>两股力量刚好抵消：H_x dx* + H_θ dθ = 0，移项就得到经济学里最有用的比较静态公式 dx*/dθ = -H_θ / H_x。注意：只要知道分母 H_x ≠ 0 并且确定分子分母的正负号，连 x* 的具体数值都不用算就能证出单调性！</p>
+      
+        <div class="formula-block">
+          <div class="formula-title">全微分与隐函数比较静态公式</div>
+          <div class="math-scroll">$$H(x^*(\theta), \theta) = 0 \implies \frac{dx^*}{d\theta} = -\frac{\partial H / \partial \theta}{\partial H / \partial x}\Big|_{x=x^*} = -\frac{H_\theta}{H_x}$$</div>
+          <p class="formula-read"><b>白话读法：</b>只要在均衡点处分母 H_x 不为零，门槛对参数 θ 的导数就等于“负的参数偏导除以门槛偏导”。</p>
+        </div>
+        
+        <div class="formula-block">
+          <div class="formula-title">隐函数定理的局部存在唯一性前提</div>
+          <div class="math-scroll">$$H(x_0, \theta_0) = 0 \quad \text{且} \quad H_x(x_0, \theta_0) \neq 0$$</div>
+          <p class="formula-read"><b>白话读法：</b>在 Stage 4 的计算机辅助证明中，只要用高精度区间算术验证某点满足 H = 0 且 H_x 严格远离 0，隐函数定理就能严格保证附近存在一条光滑唯一的解曲线 x*(θ)。</p>
+        </div>
+        
+      <div class="step-grid">
+        <div class="step-card">
+          <h3>第 1 步：写出平衡恒等式</h3>
+          <p style="margin:4px 0 0;">把门槛方程整理成标准形式 H(x*(θ), θ) = 0，明确谁是内生变量（x*）、谁是外生参数（θ，如成本 C、折现率 r、波动率 σ）。</p>
+          <div class="step-meta"><b>实战口诀：</b>先把所有项移到同一边，统一成 H = 0，避免正负号混乱。</div>
+          <div class="step-meta"><b>适用边界：</b>若方程有多根，需先用经济边界（如 x* &gt; 0 或满足二阶条件）锁定唯一根。</div>
+        </div>
+        
+        <div class="step-card">
+          <h3>第 2 步：对参数 θ 两边求全微分（链式法则）</h3>
+          <p style="margin:4px 0 0;">dH/dθ = H_x · (dx*/dθ) + H_θ = 0。第一项是 θ 通过 x* 间接影响 H，第二项是 θ 直接影响 H。</p>
+          <div class="step-meta"><b>实战口诀：</b>见到复合函数 H(x*(θ), θ)，记住“直接效应 + 间接效应 = 0”。</div>
+          <div class="step-meta"><b>适用边界：</b>要求 H 在 (x*, θ) 附近连续可微（C¹）。</div>
+        </div>
+        
+        <div class="step-card">
+          <h3>第 3 步：定分母符号，再定分子符号</h3>
+          <p style="margin:4px 0 0;">很多时候从最优性二阶条件或边界单调性就能确定 H_x &gt; 0（或 &lt; 0）；此时 sign(dx*/dθ) 就直接等于 -sign(H_θ)（或 +sign(H_θ)）。</p>
+          <div class="step-meta"><b>实战口诀：</b>比较静态的灵魂是“判号”而不是“硬算闭式值”。</div>
+          <div class="step-meta"><b>适用边界：</b>当 H_x = 0（切触/分岔点）时，隐函数定理失效，不能直接做除法。</div>
+        </div>
+        </div>
+    </section>
+
+    
+        <section class="card">
+          <h2>3. 5 分钟最小算例（教学演示）</h2>
+          <div class="example-box">
+            <h3>【教学演示】不用解出 x*，直接判断投资成本 C 上升如何影响门槛</h3>
+            <p>（教学演示算例）假设某隐式门槛方程为 H(x, C) = x^2 - 2x - C = 0，其中 C &gt; 0 且要求 x &gt; 1（经济学要求门槛大于盈亏平衡点）。</p>
+            <ol style="margin:8px 0 0;padding-left:20px;"><li>求对门槛的偏导：H_x = 2x - 2。因为在 x &gt; 1 区域，H_x &gt; 0，非零且符号确定！</li><li>求对成本的偏导：H_C = -1 &lt; 0。</li><li>套用隐函数公式：dx*/dC = -H_C / H_x = -(-1) / (2x* - 2) = 1 / (2x* - 2) &gt; 0。结论：成本 C 越高，最优投资门槛 x* 严格越高——全程甚至没用到求根公式。</li></ol>
+          </div>
+        </section>
+        
+
+    <section class="card">
+      <h2>4. 3 分钟防坑边界与常见误区</h2>
+      <div class="pitfall-box">
+        <b>顶刊与推导避坑提示</b>
+        <ul><li>忘记验证分母 H_x ≠ 0：如果 H_x 在某些参数下可能变号或为零，dx*/dθ 的符号就无法全局确定。</li><li>漏掉“负号”：公式是 dx*/dθ = -H_θ / H_x，不是 +H_θ / H_x。记忆口诀：天平要重新归零，所以必须反向补偿。</li></ul>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>5. 5 分钟轻量自测与 60 秒费曼复述</h2>
+      
+        <div class="quiz-card">
+          <div><b>Q1.</b> 若隐式门槛方程 H(x*, σ) = 0 在解点处满足 H_x &lt; 0 且 H_σ &gt; 0，则波动率 σ 上升时，门槛 x* 如何变化？</div>
+          <details>
+            <summary>展开参考答案与解析</summary>
+            <p style="margin:8px 0 4px;"><b>参考答案：</b>门槛 x* 上升（dx*/dσ &gt; 0）。</p>
+            <p style="margin:4px 0;"><b>解析：</b>dx*/dσ = -H_σ / H_x = -(正) / (负) &gt; 0。</p>
+            <p style="margin:4px 0 0;" class="muted"><b>常见失误：</b>忘记公式前面的负号，误判为下降。</p>
+          </details>
+        </div>
+        
+        <div class="quiz-card">
+          <div><b>Q2.</b> 为什么说隐函数定理不仅用于“比较静态判号”，还在 Stage 4 的区间算术证明里扮演核心角色？</div>
+          <details>
+            <summary>展开参考答案与解析</summary>
+            <p style="margin:8px 0 4px;"><b>参考答案：</b>因为它给出严格的局部存在唯一性条件：只要证明 H(x_0, θ_0) = 0 且 H_x(x_0, θ_0) ≠ 0，就能由局部一点推导出邻域内光滑解曲线的存在。</p>
+            <p style="margin:4px 0;"><b>解析：</b>计算机辅助证明往往先用区间算术锁死 H 的变号区间和 H_x 远离零，再调用隐函数定理完成严格数学闭环。</p>
+            <p style="margin:4px 0 0;" class="muted"><b>常见失误：</b>以为隐函数定理只是求导技巧，忽略了它的存在唯一性结论。</p>
+          </details>
+        </div>
+        
+        <div class="quiz-card">
+          <div><b>Q3.</b> 假设某问题有闭式解 x* = (β/(β-1)) · C，其中 β &gt; 1 随波动率 σ 上升而严格下降（dβ/dσ &lt; 0）。不展开细节，用链式法则判断 dx*/dσ 的符号。</div>
+          <details>
+            <summary>展开参考答案与解析</summary>
+            <p style="margin:8px 0 4px;"><b>参考答案：</b>dx*/dσ &gt; 0（波动率越高，等待门槛越高）。</p>
+            <p style="margin:4px 0;"><b>解析：</b>令 f(β) = β/(β-1) = 1 + 1/(β-1)，显然 f&#x27;(β) = -1/(β-1)^2 &lt; 0。再由链式法则 dx*/dσ = C · f&#x27;(β) · (dβ/dσ) = 正 × 负 × 负 &gt; 0。</p>
+            <p style="margin:4px 0 0;" class="muted"><b>常见失误：</b>看到 dβ/dσ &lt; 0 就直觉以为 x* 也下降，忽略了 β/(β-1) 是 β 的减函数。</p>
+          </details>
+        </div>
+        
+      <div class="highlight-box" style="margin-top:14px;">
+        <b>60 秒闭卷费曼复述</b>
+        <p style="margin:6px 0 0;">用“天平重新归零”的比喻，向同学解释为什么 dx*/dθ = -H_θ / H_x 里会有一个负号。</p>
+      </div>
+      <div class="cta-row">
+        <button id="toggle-done-btn" type="button" class="btn btn-navy" data-lesson-key="ro-s02">
+          标记本节已完成（本地打卡）
+        </button>
+      </div>
+    </section>
+
+    <nav class="pager">
+      <a class="btn btn-soft" href="ro-s01.html">← 上一节：RO-S01</a>
+      <a class="btn btn-soft" href="../stages/stage01.html">返回本阶段目录</a>
+      <a class="btn btn-navy" href="ro-s03.html">下一节：RO-S03 →</a>
+    </nav>
+    
+    <footer class="disclaimer">本课程所有金融、能源或商业投资算例均标注为“教学演示”，仅用于辅助理解数学机制，不代表已核验文献结论或实证结果。</footer>
+  </main>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+  <script defer src="../assets/app.js"></script>
+</body>
+</html>

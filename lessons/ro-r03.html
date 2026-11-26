@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RO-R03 Stage 3 严格验证复盘：读懂顶刊附录 A 的审计框架 · 连续时间实物期权 · 8周轻量实战</title>
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="../index.html">连续时间实物期权 · 8周轻量实战</a>
+      <nav class="nav-links">
+        <a href="../index.html">8周总览</a>
+        <a href="../stages/stage01.html">Stage 1</a>
+        <a href="../stages/stage02.html">Stage 2</a>
+        <a href="../stages/stage03.html">Stage 3</a>
+        <a href="../stages/stage04.html">Stage 4</a>
+      </nav>
+    </div>
+  </header>
+  <main class="container">
+    
+    <p class="muted" style="margin:0 0 10px;">
+      <a href="../index.html">8周总览</a> /
+      <a href="../stages/stage03.html">Stage 3｜严格验证定理与凸分析判号</a> /
+      RO-R03
+    </p>
+
+    <section class="card">
+      <div class="hero-meta" style="margin-bottom:10px;">
+        <span class="chip chip-navy">RO-R03 · 第 6 周末 · Stage 3 双周复盘</span>
+        <span class="chip chip-navy">预计 25 分钟</span>
+        <span class="chip chip-outline">骨架预览（待精修）</span>
+      </div>
+      <h1 style="margin:0 0 12px;font-size:1.35rem;color:var(--navy);line-height:1.35;">Stage 3 严格验证复盘：读懂顶刊附录 A 的审计框架</h1>
+      <div class="highlight-box">
+        <b>1. 3 分钟直觉唤醒（一句话核心）</b>
+        <p style="margin:6px 0 0;">通关 Stage 3 意味着你已经具备阅读和审计顶刊实物期权论文理论附录的核心工具：VI、验证定理、局部时、耦合与凸分析判号。</p>
+      </div>
+      <p style="margin:0 0 6px;"><b>它解决什么建模痛点：</b>把第 2–3 层功力的 6 招整理成一张顶刊附录审计清单。</p>
+      <p style="margin:0;" class="muted"><b>课程衔接：</b>衔接 Stage 4（第 7–8 周）：用 Python 工具链做独立数值验算与区间证书。</p>
+    </section>
+
+    
+        <div class="notice-outline">
+          <b>骨架预览提示：</b>本节当前提供核心公式、学习定位与预热自测；后续逐阶段精修时将补齐详细白话拆解、完整教学演示算例与更多自测题。
+        </div>
+        
+
+    <section class="card">
+      <h2>2. 10 分钟核心公式与白话拆解</h2>
+      <p>【骨架预览 · 待后续精修】本复盘将梳理一份“顶刊附录防漏检 5 问”与 5 道综合审计题。</p>
+      
+        <div class="formula-block">
+          <div class="formula-title">顶刊证明四支柱</div>
+          <div class="math-scroll">$$\text{VI 三条件} + \text{Verification 三步} + \text{局部时 } V'(a)=0 + \text{耦合/凸判号}$$</div>
+          <p class="formula-read"><b>白话读法：</b>几乎所有顶刊连续时间最优停止附录都围绕这四根柱子展开。</p>
+        </div>
+        
+      <div class="step-grid">
+        <div class="step-card">
+          <h3>待精修：附录审计 4 步</h3>
+          <p style="margin:4px 0 0;">查 C¹/分段 C² → 查两区 VI 不等式 → 查无穷远横截条件 → 查门槛比较的单调方向。</p>
+          <div class="step-meta"><b>实战口诀：</b>读证明时抓结构，不被局部代数淹没。</div>
+          <div class="step-meta"><b>适用边界：</b>遇到解析判号极其困难的命题，留给 Stage 4 数值与区间证书。</div>
+        </div>
+        </div>
+    </section>
+
+    
+
+    <section class="card">
+      <h2>4. 3 分钟防坑边界与常见误区</h2>
+      <div class="pitfall-box">
+        <b>顶刊与推导避坑提示</b>
+        <ul><li>逐行死磕每个不等式变形，却没看清整段证明在证上界还是证下界。</li></ul>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>5. 5 分钟轻量自测与 60 秒费曼复述</h2>
+      
+        <div class="quiz-card">
+          <div><b>Q1.</b> 【阶段预热】审计一篇实物期权论文的附录 A 时，最应该优先检查哪三个潜在漏洞？</div>
+          <details>
+            <summary>展开参考答案与解析</summary>
+            <p style="margin:8px 0 4px;"><b>参考答案：</b>① 停止区与继续区的 VI 不等式是否都验过；② 无穷远增长/横截条件是否成立；③ 自由边界或反射边界处是否遗漏局部时项。</p>
+            <p style="margin:4px 0;"><b>解析：</b>这三处是连续时间最优停止论文最常出现不严谨的地方。</p>
+            <p style="margin:4px 0 0;" class="muted"><b>常见失误：</b>只核对代数算术，忽略随机分析边界条件。</p>
+          </details>
+        </div>
+        
+      <div class="highlight-box" style="margin-top:14px;">
+        <b>60 秒闭卷费曼复述</b>
+        <p style="margin:6px 0 0;">用 60 秒总结一篇顶刊实物期权论文的附录 A 通常靠哪四招把结论证死。</p>
+      </div>
+      <div class="cta-row">
+        <button id="toggle-done-btn" type="button" class="btn btn-navy" data-lesson-key="ro-r03">
+          标记本节已完成（本地打卡）
+        </button>
+      </div>
+    </section>
+
+    <nav class="pager">
+      <a class="btn btn-soft" href="ro-s18.html">← 上一节：RO-S18</a>
+      <a class="btn btn-soft" href="../stages/stage03.html">返回本阶段目录</a>
+      <a class="btn btn-navy" href="ro-s19.html">下一节：RO-S19 →</a>
+    </nav>
+    
+    <footer class="disclaimer">本课程所有金融、能源或商业投资算例均标注为“教学演示”，仅用于辅助理解数学机制，不代表已核验文献结论或实证结果。</footer>
+  </main>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+  <script defer src="../assets/app.js"></script>
+</body>
+</html>

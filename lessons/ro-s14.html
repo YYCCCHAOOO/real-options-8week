@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RO-S14 为什么平滑粘贴不等于全局最优：变分不等式（VI）三大条件 · 连续时间实物期权 · 8周轻量实战</title>
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="../index.html">连续时间实物期权 · 8周轻量实战</a>
+      <nav class="nav-links">
+        <a href="../index.html">8周总览</a>
+        <a href="../stages/stage01.html">Stage 1</a>
+        <a href="../stages/stage02.html">Stage 2</a>
+        <a href="../stages/stage03.html">Stage 3</a>
+        <a href="../stages/stage04.html">Stage 4</a>
+      </nav>
+    </div>
+  </header>
+  <main class="container">
+    
+    <p class="muted" style="margin:0 0 10px;">
+      <a href="../index.html">8周总览</a> /
+      <a href="../stages/stage03.html">Stage 3｜严格验证定理与凸分析判号</a> /
+      RO-S14
+    </p>
+
+    <section class="card">
+      <div class="hero-meta" style="margin-bottom:10px;">
+        <span class="chip chip-navy">RO-S14 · 第 5 周 · 第 2 课</span>
+        <span class="chip chip-navy">预计 22 分钟</span>
+        <span class="chip chip-outline">骨架预览（待精修）</span>
+      </div>
+      <h1 style="margin:0 0 12px;font-size:1.35rem;color:var(--navy);line-height:1.35;">为什么平滑粘贴不等于全局最优：变分不等式（VI）三大条件</h1>
+      <div class="highlight-box">
+        <b>1. 3 分钟直觉唤醒（一句话核心）</b>
+        <p style="margin:6px 0 0;">全局最优值函数必须同时满足变分不等式三件套：处处不低于立即收益、处处 L V - rV ≤ 0、且二者至少有一个取等号。</p>
+      </div>
+      <p style="margin:0 0 6px;"><b>它解决什么建模痛点：</b>解释为什么普通论文算完值匹配+平滑粘贴可能算出“局部伪解”，而顶刊必须额外验证两个区域的不等式。</p>
+      <p style="margin:0;" class="muted"><b>课程衔接：</b>把 Stage 2 的等式边界升级为全局的变分不等式（Variational Inequality）。</p>
+    </section>
+
+    
+        <div class="notice-outline">
+          <b>骨架预览提示：</b>本节当前提供核心公式、学习定位与预热自测；后续逐阶段精修时将补齐详细白话拆解、完整教学演示算例与更多自测题。
+        </div>
+        
+
+    <section class="card">
+      <h2>2. 10 分钟核心公式与白话拆解</h2>
+      <p>【骨架预览 · 待后续精修】本课拆解变分不等式 min{rV - LV, V - g} = 0 的两条经常被漏验的不等式：① 等待区里 V(x) ≥ g(x)；② 停止区里 L g(x) - r g(x) ≤ 0。</p>
+      
+        <div class="formula-block">
+          <div class="formula-title">最优停止变分不等式（VI）</div>
+          <div class="math-scroll">$$\min\big\{ rV(x) - \mathcal{L}V(x),\; V(x) - g(x) \big\} = 0$$</div>
+          <p class="formula-read"><b>白话读法：</b>在继续区 rV - LV = 0 且 V ≥ g；在停止区 V = g 且 rV - LV ≥ 0（继续等只会亏）。</p>
+        </div>
+        
+      <div class="step-grid">
+        <div class="step-card">
+          <h3>待精修：检查两个容易被忽略的区域不等式</h3>
+          <p style="margin:4px 0 0;">解完门槛后，必须回检继续区的 V &gt; g 与停止区的 (L - r)g ≤ 0。</p>
+          <div class="step-meta"><b>实战口诀：</b>VI 就是 Stage 4 数值解法（LCP）和 Stage 3 证明共同的语言。</div>
+          <div class="step-meta"><b>适用边界：</b>若某区域违反其中一条不等式，说明真实最优区域可能不是单阈值（可能分裂成多区间）。</div>
+        </div>
+        </div>
+    </section>
+
+    
+
+    <section class="card">
+      <h2>4. 3 分钟防坑边界与常见误区</h2>
+      <div class="pitfall-box">
+        <b>顶刊与推导避坑提示</b>
+        <ul><li>只解了等式方程，从未检查停止区是否满足 (L - r)g ≤ 0。</li></ul>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>5. 5 分钟轻量自测与 60 秒费曼复述</h2>
+      
+        <div class="quiz-card">
+          <div><b>Q1.</b> 【预热自测】在停止区（x ≥ x*）里，需要验证 (L - r)g(x) ≤ 0，它的经济含义是什么？</div>
+          <details>
+            <summary>展开参考答案与解析</summary>
+            <p style="margin:8px 0 4px;"><b>参考答案：</b>表示在停止区里，如果硬拖着不行动再等一瞬间，期望瞬时增值低于资金机会成本 r g(x)，因此立刻行动是最优的。</p>
+            <p style="margin:4px 0;"><b>解析：</b>否则说明在停止区某个更远的地方反而又值得等待了。</p>
+            <p style="margin:4px 0 0;" class="muted"><b>常见失误：</b>把不等号方向写反。</p>
+          </details>
+        </div>
+        
+      <div class="highlight-box" style="margin-top:14px;">
+        <b>60 秒闭卷费曼复述</b>
+        <p style="margin:6px 0 0;">讲清楚变分不等式 min{rV - LV, V - g} = 0 里的两个分支分别对应哪个区域。</p>
+      </div>
+      <div class="cta-row">
+        <button id="toggle-done-btn" type="button" class="btn btn-navy" data-lesson-key="ro-s14">
+          标记本节已完成（本地打卡）
+        </button>
+      </div>
+    </section>
+
+    <nav class="pager">
+      <a class="btn btn-soft" href="ro-s13.html">← 上一节：RO-S13</a>
+      <a class="btn btn-soft" href="../stages/stage03.html">返回本阶段目录</a>
+      <a class="btn btn-navy" href="ro-s15.html">下一节：RO-S15 →</a>
+    </nav>
+    
+    <footer class="disclaimer">本课程所有金融、能源或商业投资算例均标注为“教学演示”，仅用于辅助理解数学机制，不代表已核验文献结论或实证结果。</footer>
+  </main>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+  <script defer src="../assets/app.js"></script>
+</body>
+</html>

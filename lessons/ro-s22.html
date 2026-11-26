@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RO-S22 mpmath 高精度区间算术与计算机辅助存在性证明 · 连续时间实物期权 · 8周轻量实战</title>
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="../index.html">连续时间实物期权 · 8周轻量实战</a>
+      <nav class="nav-links">
+        <a href="../index.html">8周总览</a>
+        <a href="../stages/stage01.html">Stage 1</a>
+        <a href="../stages/stage02.html">Stage 2</a>
+        <a href="../stages/stage03.html">Stage 3</a>
+        <a href="../stages/stage04.html">Stage 4</a>
+      </nav>
+    </div>
+  </header>
+  <main class="container">
+    
+    <p class="muted" style="margin:0 0 10px;">
+      <a href="../index.html">8周总览</a> /
+      <a href="../stages/stage04.html">Stage 4｜现代数值校验、区间证书与论文实战</a> /
+      RO-S22
+    </p>
+
+    <section class="card">
+      <div class="hero-meta" style="margin-bottom:10px;">
+        <span class="chip chip-navy">RO-S22 · 第 8 周 · 第 1 课</span>
+        <span class="chip chip-navy">预计 22 分钟</span>
+        <span class="chip chip-outline">骨架预览（待精修）</span>
+      </div>
+      <h1 style="margin:0 0 12px;font-size:1.35rem;color:var(--navy);line-height:1.35;">mpmath 高精度区间算术与计算机辅助存在性证明</h1>
+      <div class="highlight-box">
+        <b>1. 3 分钟直觉唤醒（一句话核心）</b>
+        <p style="margin:6px 0 0;">普通浮点数有舍入误差不能当数学证明；区间算术（mpmath.iv）把每一步舍入误差都严丝合缝包进上下界里，配合介值定理与隐函数定理就能给出顶刊认可的严格存在性证书。</p>
+      </div>
+      <p style="margin:0 0 6px;"><b>它解决什么建模痛点：</b>看懂 B003 的 Theorem 3 这类“纯手算证明不了全局符号，但用区间算术把局部存在性证死”的现代顶刊证明技术。</p>
+      <p style="margin:0;" class="muted"><b>课程衔接：</b>直接呼应 RO-S02 的隐函数定理前提 H(x_0, θ_0)=0 且 H_x ≠ 0。</p>
+    </section>
+
+    
+        <div class="notice-outline">
+          <b>骨架预览提示：</b>本节当前提供核心公式、学习定位与预热自测；后续逐阶段精修时将补齐详细白话拆解、完整教学演示算例与更多自测题。
+        </div>
+        
+
+    <section class="card">
+      <h2>2. 10 分钟核心公式与白话拆解</h2>
+      <p>【骨架预览 · 待后续精修】本课介绍 Python `mpmath.iv`（区间算术）的基本原理：如何用严格包络区间证明 f(a) &lt; 0 &lt; f(b) 且 f&#x27;(x) 不含 0，从而得到无可辩驳的零点存在唯一性证书。</p>
+      
+        <div class="formula-block">
+          <div class="formula-title">区间算术存在性证书条件</div>
+          <div class="math-scroll">$$\sup F([a,a]) < 0 < \inf F([b,b]),\qquad 0 \notin F'([a,b])$$</div>
+          <p class="formula-read"><b>白话读法：</b>只要区间计算严格输出左端上界小于 0、右端下界大于 0，且导数区间不包含 0，就 100% 严格证明 [a, b] 内存在唯一根且满足隐函数定理条件。</p>
+        </div>
+        
+      <div class="step-grid">
+        <div class="step-card">
+          <h3>待精修：区间证书 3 步写法</h3>
+          <p style="margin:4px 0 0;">设高精度（如 50 位小数）→ 用 iv.mpf 构造输入区间 → 断言符号分离并导出可复现证书 JSON/日志。</p>
+          <div class="step-meta"><b>实战口诀：</b>用于证明存在性、局部比较静态或反例构造，堵死“浮点误差”质疑。</div>
+          <div class="step-meta"><b>适用边界：</b>区间算术适合证明具体参数点或紧致小盒上的性质，不能直接替代无界全参数空间的解析证明。</div>
+        </div>
+        </div>
+    </section>
+
+    
+
+    <section class="card">
+      <h2>4. 3 分钟防坑边界与常见误区</h2>
+      <div class="pitfall-box">
+        <b>顶刊与推导避坑提示</b>
+        <ul><li>把普通 float64 的 print 结果当成数学证明，而忽略浮点舍入与病态相消。</li></ul>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>5. 5 分钟轻量自测与 60 秒费曼复述</h2>
+      
+        <div class="quiz-card">
+          <div><b>Q1.</b> 【预热自测】为什么 `mpmath.iv` 的区间算术结果可以作为严格数学证明，而普通 NumPy 浮点计算只能算数值证据？</div>
+          <details>
+            <summary>展开参考答案与解析</summary>
+            <p style="margin:8px 0 4px;"><b>参考答案：</b>因为区间算术在每次加减乘除和初等函数运算时采用向外舍入，保证真实数学值严格落在输出区间内，彻底消除了舍入误差不确定性。</p>
+            <p style="margin:4px 0;"><b>解析：</b>因此一旦区间严格不含 0，符号结论就是数学定理级别的。</p>
+            <p style="margin:4px 0 0;" class="muted"><b>常见失误：</b>以为只是把小数位数调高到 50 位就算区间证明（高精度浮点仍需区间包络才构成严格界）。</p>
+          </details>
+        </div>
+        
+      <div class="highlight-box" style="margin-top:14px;">
+        <b>60 秒闭卷费曼复述</b>
+        <p style="margin:6px 0 0;">向合作者解释：区间算术怎么和介值定理、隐函数定理配合，把一个“看起来对”的数值例子变成严格定理。</p>
+      </div>
+      <div class="cta-row">
+        <button id="toggle-done-btn" type="button" class="btn btn-navy" data-lesson-key="ro-s22">
+          标记本节已完成（本地打卡）
+        </button>
+      </div>
+    </section>
+
+    <nav class="pager">
+      <a class="btn btn-soft" href="ro-s21.html">← 上一节：RO-S21</a>
+      <a class="btn btn-soft" href="../stages/stage04.html">返回本阶段目录</a>
+      <a class="btn btn-navy" href="ro-s23.html">下一节：RO-S23 →</a>
+    </nav>
+    
+    <footer class="disclaimer">本课程所有金融、能源或商业投资算例均标注为“教学演示”，仅用于辅助理解数学机制，不代表已核验文献结论或实证结果。</footer>
+  </main>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+  <script defer src="../assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RO-S24 8 周总复盘与个人连续时间建模工具箱整合 · 连续时间实物期权 · 8周轻量实战</title>
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="../index.html">连续时间实物期权 · 8周轻量实战</a>
+      <nav class="nav-links">
+        <a href="../index.html">8周总览</a>
+        <a href="../stages/stage01.html">Stage 1</a>
+        <a href="../stages/stage02.html">Stage 2</a>
+        <a href="../stages/stage03.html">Stage 3</a>
+        <a href="../stages/stage04.html">Stage 4</a>
+      </nav>
+    </div>
+  </header>
+  <main class="container">
+    
+    <p class="muted" style="margin:0 0 10px;">
+      <a href="../index.html">8周总览</a> /
+      <a href="../stages/stage04.html">Stage 4｜现代数值校验、区间证书与论文实战</a> /
+      RO-S24
+    </p>
+
+    <section class="card">
+      <div class="hero-meta" style="margin-bottom:10px;">
+        <span class="chip chip-navy">RO-S24 · 第 8 周 · 第 3 课</span>
+        <span class="chip chip-navy">预计 25 分钟</span>
+        <span class="chip chip-outline">骨架预览（待精修）</span>
+      </div>
+      <h1 style="margin:0 0 12px;font-size:1.35rem;color:var(--navy);line-height:1.35;">8 周总复盘与个人连续时间建模工具箱整合</h1>
+      <div class="highlight-box">
+        <b>1. 3 分钟直觉唤醒（一句话核心）</b>
+        <p style="margin:6px 0 0;">8 周结束不是终点，而是你拥有了一张清晰的“连续时间实物期权能力地图”和一套可复用的推导、审计与验算工具箱。</p>
+      </div>
+      <p style="margin:0 0 6px;"><b>它解决什么建模痛点：</b>把 24 节微课沉淀成个人长期可查阅的速查卡、代码模板清单与下一步研究路线。</p>
+      <p style="margin:0;" class="muted"><b>课程衔接：</b>全课收官课，对接后续真实论文复现或写作任务。</p>
+    </section>
+
+    
+        <div class="notice-outline">
+          <b>骨架预览提示：</b>本节当前提供核心公式、学习定位与预热自测；后续逐阶段精修时将补齐详细白话拆解、完整教学演示算例与更多自测题。
+        </div>
+        
+
+    <section class="card">
+      <h2>2. 10 分钟核心公式与白话拆解</h2>
+      <p>【骨架预览 · 待后续精修】本课汇总 8 周核心公式速查表、4 层能力自评雷达与“接下来如何借助 AI + Python 高效推进一篇理论论文”的分工建议。</p>
+      
+        <div class="formula-block">
+          <div class="formula-title">人机协作黄金分工</div>
+          <div class="math-scroll">$$\text{你拍板（第 0 层切口 + 概念直觉 + 独立验算设计）} \;+\; \text{工具扛体力活（SymPy / FDM / mpmath）}$$</div>
+          <p class="formula-read"><b>白话读法：</b>懂直觉、会设计校验、能识别附录漏洞，就已经能驾驭顶刊级连续时间实物期权论文。</p>
+        </div>
+        
+      <div class="step-grid">
+        <div class="step-card">
+          <h3>待精修：个人工具箱 4 件套</h3>
+          <p style="margin:4px 0 0;">① 公式与边界速查卡；② 附录验证定理审计单；③ SymPy + FDM + MC 验算模板；④ 区间证书脚本模板。</p>
+          <div class="step-meta"><b>实战口诀：</b>以后每读一篇新论文，只往工具箱里新增新组件，不重复造轮子。</div>
+          <div class="step-meta"><b>适用边界：</b>工具不能替代经济学直觉与对验证条件的独立核查。</div>
+        </div>
+        </div>
+    </section>
+
+    
+
+    <section class="card">
+      <h2>4. 3 分钟防坑边界与常见误区</h2>
+      <div class="pitfall-box">
+        <b>顶刊与推导避坑提示</b>
+        <ul><li>学完 8 周后束之高阁，没有立刻拿一篇真实论文（如 B003）做一次小规模实操。</li></ul>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>5. 5 分钟轻量自测与 60 秒费曼复述</h2>
+      
+        <div class="quiz-card">
+          <div><b>Q1.</b> 【预热自测】回顾 4 层能力表，哪一层最不能外包给 AI，必须由研究者本人牢牢把关？</div>
+          <details>
+            <summary>展开参考答案与解析</summary>
+            <p style="margin:8px 0 4px;"><b>参考答案：</b>第 0 层（提炼干净问题切口与对比边界）以及对数学证明/独立数值验算的逻辑核验。</p>
+            <p style="margin:4px 0;"><b>解析：</b>AI 可以极大加速 ODE 推导与代码编写，但问题切口和严谨核验责任在研究者本人。</p>
+            <p style="margin:4px 0 0;" class="muted"><b>常见失误：</b>盲信 AI 生成的数学证明而不做独立数值和边界核验。</p>
+          </details>
+        </div>
+        
+      <div class="highlight-box" style="margin-top:14px;">
+        <b>60 秒闭卷费曼复述</b>
+        <p style="margin:6px 0 0;">给自己写下 3 句 8 周结业总结：你攻克了什么、工具箱里多了什么、下一篇要实操的论文是什么。</p>
+      </div>
+      <div class="cta-row">
+        <button id="toggle-done-btn" type="button" class="btn btn-navy" data-lesson-key="ro-s24">
+          标记本节已完成（本地打卡）
+        </button>
+      </div>
+    </section>
+
+    <nav class="pager">
+      <a class="btn btn-soft" href="ro-s23.html">← 上一节：RO-S23</a>
+      <a class="btn btn-soft" href="../stages/stage04.html">返回本阶段目录</a>
+      <a class="btn btn-navy" href="ro-r04.html">下一节：RO-R04 →</a>
+    </nav>
+    
+    <footer class="disclaimer">本课程所有金融、能源或商业投资算例均标注为“教学演示”，仅用于辅助理解数学机制，不代表已核验文献结论或实证结果。</footer>
+  </main>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+  <script defer src="../assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stage 3｜严格验证定理与凸分析判号 · 连续时间实物期权 · 8周轻量实战</title>
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="../index.html">连续时间实物期权 · 8周轻量实战</a>
+      <nav class="nav-links">
+        <a href="../index.html">8周总览</a>
+        <a href="../stages/stage01.html">Stage 1</a>
+        <a href="../stages/stage02.html">Stage 2</a>
+        <a href="../stages/stage03.html">Stage 3</a>
+        <a href="../stages/stage04.html">Stage 4</a>
+      </nav>
+    </div>
+  </header>
+  <main class="container">
+    
+    <p class="muted" style="margin:0 0 10px;"><a href="../index.html">← 返回 8 周总览</a></p>
+    <section class="hero">
+      <div class="hero-meta">
+        <span class="chip chip-light">第 5–6 周</span>
+        <span class="chip chip-light">第 2–3 层功力</span>
+        <span class="chip chip-outline">结构骨架已就绪（待后续精修）</span>
+      </div>
+      <h1>Stage 3｜严格验证定理与凸分析判号</h1>
+      <p>对应第 2–3 层功力（顶刊分水岭 + 代数灵气）：读懂并运用鞅、可选停时定理、变分不等式（VI）、Verification Theorem 三步证明、局部时 Neumann 条件、样本路径耦合与凸分析判号套路。</p>
+    </section>
+
+    
+        <div class="notice-outline">
+          <b>当前阶段状态：结构骨架已就绪（待后续逐阶段精修）</b><br>
+          本阶段已包含全部 6 节微课与双周复盘的学习目标、核心公式预览与预热自测；完整推导、教学演示算例与代码模板将在下一轮原地扩充，且不会覆盖你的学习打卡记录。
+        </div>
+        
+
+    <section class="card">
+      <h2>本阶段核心目标</h2>
+      <ul style="margin:0;padding-left:20px;"><li>看懂顶刊附录 A 里的鞅、停止时间、局部时与无穷远横截条件。</li><li>掌握 Verification Theorem 的标准三步证明结构（超鞅不等式 + 最优停止取等 + 增长条件）。</li><li>理解样本路径耦合如何几行证出单调性与价值不等式。</li><li>掌握“构造 U 型凸函数 G(z) 判号”的常见代数变形套路。</li></ul>
+    </section>
+
+    <section class="card">
+      <h2>本阶段课时与复盘（共 6 课 + 1 复盘）</h2>
+      <div class="lesson-list">
+            <a class="lesson-item" data-lesson-item="ro-s13" href="../lessons/ro-s13.html">
+              <div class="lesson-item-main">
+                <div class="lesson-code">RO-S13 · 第 5 周 · 第 1 课</div>
+                <div class="lesson-title">鞅、停止时间与可选停时定理（OST）的直觉</div>
+                <div class="lesson-sub">鞅是“公平赌局”（未来期望等于现在），超鞅是“对你不利的赌局”（越等期望越低），停止时间是“不偷看未来的出手规则”。</div>
+              </div>
+              <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0;">
+                <span class="chip chip-navy">22 分钟</span>
+                <span class="muted" style="font-size:0.78rem;" data-done-badge>未开始</span>
+              </div>
+            </a>
+            
+            <a class="lesson-item" data-lesson-item="ro-s14" href="../lessons/ro-s14.html">
+              <div class="lesson-item-main">
+                <div class="lesson-code">RO-S14 · 第 5 周 · 第 2 课</div>
+                <div class="lesson-title">为什么平滑粘贴不等于全局最优：变分不等式（VI）三大条件</div>
+                <div class="lesson-sub">全局最优值函数必须同时满足变分不等式三件套：处处不低于立即收益、处处 L V - rV ≤ 0、且二者至少有一个取等号。</div>
+              </div>
+              <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0;">
+                <span class="chip chip-navy">22 分钟</span>
+                <span class="muted" style="font-size:0.78rem;" data-done-badge>未开始</span>
+              </div>
+            </a>
+            
+            <a class="lesson-item" data-lesson-item="ro-s15" href="../lessons/ro-s15.html">
+              <div class="lesson-item-main">
+                <div class="lesson-code">RO-S15 · 第 5 周 · 第 3 课</div>
+                <div class="lesson-title">Verification Theorem 三步证明模板与无穷远增长条件</div>
+                <div class="lesson-sub">顶刊附录里的验证定理几乎清一色是固定三步：对折现候选函数用 Itô-Tanaka → 用 VI 证上界 → 在候选停时 τ* 上用增长条件取等。</div>
+              </div>
+              <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0;">
+                <span class="chip chip-navy">25 分钟</span>
+                <span class="muted" style="font-size:0.78rem;" data-done-badge>未开始</span>
+              </div>
+            </a>
+            
+            <a class="lesson-item" data-lesson-item="ro-s16" href="../lessons/ro-s16.html">
+              <div class="lesson-item-main">
+                <div class="lesson-code">RO-S16 · 第 6 周 · 第 1 课</div>
+                <div class="lesson-title">反射边界的局部时（Local Time）与 Neumann 边界条件</div>
+                <div class="lesson-sub">反射过程 dX_t = μX_t dt + σX_t dW_t + dL_t 里的 dL_t 只在撞到下界 a 时才推一把，施加 Neumann 条件 V&#x27;(a) = 0 正是为了把 dL_t 项从 Itô 公式里精准消掉。</div>
+              </div>
+              <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0;">
+                <span class="chip chip-navy">22 分钟</span>
+                <span class="muted" style="font-size:0.78rem;" data-done-badge>未开始</span>
+              </div>
+            </a>
+            
+            <a class="lesson-item" data-lesson-item="ro-s17" href="../lessons/ro-s17.html">
+              <div class="lesson-item-main">
+                <div class="lesson-code">RO-S17 · 第 6 周 · 第 2 课</div>
+                <div class="lesson-title">样本路径耦合（Coupling）与比较原理：几行证出不等式</div>
+                <div class="lesson-sub">把两个不同机制（或不同起点）放进同一个布朗运动 W_t 驱动下逐条路径比大小，往往三行就能证出硬算十页都推不出的价值不等式。</div>
+              </div>
+              <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0;">
+                <span class="chip chip-navy">20 分钟</span>
+                <span class="muted" style="font-size:0.78rem;" data-done-badge>未开始</span>
+              </div>
+            </a>
+            
+            <a class="lesson-item" data-lesson-item="ro-s18" href="../lessons/ro-s18.html">
+              <div class="lesson-item-main">
+                <div class="lesson-code">RO-S18 · 第 6 周 · 第 3 课</div>
+                <div class="lesson-title">凸分析判号与代数变形套路：构造 U 型函数 G(z) 与倒推法</div>
+                <div class="lesson-sub">顶刊定理里看起来神来之笔的“构造凸函数 G(z) 判号”，背后其实有一套固定的降维套路：无量纲化比值 z → 消掉参数 → 求导看凸性 → 用数值画图先验真再倒推。</div>
+              </div>
+              <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0;">
+                <span class="chip chip-navy">25 分钟</span>
+                <span class="muted" style="font-size:0.78rem;" data-done-badge>未开始</span>
+              </div>
+            </a>
+            
+            <a class="lesson-item" data-lesson-item="ro-r03" href="../lessons/ro-r03.html">
+              <div class="lesson-item-main">
+                <div class="lesson-code">RO-R03 · 第 6 周末 · Stage 3 双周复盘</div>
+                <div class="lesson-title">Stage 3 严格验证复盘：读懂顶刊附录 A 的审计框架</div>
+                <div class="lesson-sub">通关 Stage 3 意味着你已经具备阅读和审计顶刊实物期权论文理论附录的核心工具：VI、验证定理、局部时、耦合与凸分析判号。</div>
+              </div>
+              <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0;">
+                <span class="chip chip-navy">双周复盘</span>
+                <span class="muted" style="font-size:0.78rem;" data-done-badge>未开始</span>
+              </div>
+            </a>
+            </div>
+    </section>
+    
+    <footer class="disclaimer">本课程所有金融、能源或商业投资算例均标注为“教学演示”，仅用于辅助理解数学机制，不代表已核验文献结论或实证结果。</footer>
+  </main>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+  <script defer src="../assets/app.js"></script>
+</body>
+</html>

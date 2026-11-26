@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RO-S21 蒙特卡洛样本路径模拟与最优阈值交叉校验 · 连续时间实物期权 · 8周轻量实战</title>
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="../index.html">连续时间实物期权 · 8周轻量实战</a>
+      <nav class="nav-links">
+        <a href="../index.html">8周总览</a>
+        <a href="../stages/stage01.html">Stage 1</a>
+        <a href="../stages/stage02.html">Stage 2</a>
+        <a href="../stages/stage03.html">Stage 3</a>
+        <a href="../stages/stage04.html">Stage 4</a>
+      </nav>
+    </div>
+  </header>
+  <main class="container">
+    
+    <p class="muted" style="margin:0 0 10px;">
+      <a href="../index.html">8周总览</a> /
+      <a href="../stages/stage04.html">Stage 4｜现代数值校验、区间证书与论文实战</a> /
+      RO-S21
+    </p>
+
+    <section class="card">
+      <div class="hero-meta" style="margin-bottom:10px;">
+        <span class="chip chip-navy">RO-S21 · 第 7 周 · 第 3 课</span>
+        <span class="chip chip-navy">预计 20 分钟</span>
+        <span class="chip chip-outline">骨架预览（待精修）</span>
+      </div>
+      <h1 style="margin:0 0 12px;font-size:1.35rem;color:var(--navy);line-height:1.35;">蒙特卡洛样本路径模拟与最优阈值交叉校验</h1>
+      <div class="highlight-box">
+        <b>1. 3 分钟直觉唤醒（一句话核心）</b>
+        <p style="margin:6px 0 0;">生成几万条 GBM 路径，分别试不同的停止门槛 b，画出期望折现收益随 b 变化的曲线——解析最优门槛 x* 应该正好落在曲线最高点！</p>
+      </div>
+      <p style="margin:0 0 6px;"><b>它解决什么建模痛点：</b>用最直观、最不容易写错的方法给模型“验尸”：连 ODE 都不用写，直接按经济学故事模拟现金流和停止规则。</p>
+      <p style="margin:0;" class="muted"><b>课程衔接：</b>直接复用 RO-S06 的精确对数步与 RO-S11 的最优门槛。</p>
+    </section>
+
+    
+        <div class="notice-outline">
+          <b>骨架预览提示：</b>本节当前提供核心公式、学习定位与预热自测；后续逐阶段精修时将补齐详细白话拆解、完整教学演示算例与更多自测题。
+        </div>
+        
+
+    <section class="card">
+      <h2>2. 10 分钟核心公式与白话拆解</h2>
+      <p>【骨架预览 · 待后续精修】本课给出标准 GBM 路径模拟代码框架，演示如何在门槛网格上扫描期望折现收益，并解释离散监控偏差（为什么步长 Δt 太大时模拟值会略低于连续时间解析解）。</p>
+      
+        <div class="formula-block">
+          <div class="formula-title">蒙特卡洛门槛扫描校验</div>
+          <div class="math-scroll">$$\hat{V}(x; b) = \frac{1}{M}\sum_{m=1}^{M} e^{-r\tau_b^{(m)}} \big(v(X_{\tau_b^{(m)}}^{(m)}) - I\big)$$</div>
+          <p class="formula-read"><b>白话读法：</b>在候选门槛 b 附近左右各取几个点算平均折现收益，若解析解 b = x* 恰好是峰值且高度吻合 V(x)，经济故事与数学推导就完全对齐了。</p>
+        </div>
+        
+      <div class="step-grid">
+        <div class="step-card">
+          <h3>待精修：模拟避坑要点</h3>
+          <p style="margin:4px 0 0;">使用精确对数步 + 固定随机种子（共同随机数 CRN）降低比较方差 + 注意截断时间 T 与步长 Δt。</p>
+          <div class="step-meta"><b>实战口诀：</b>用同一批随机数（CRN）比较不同门槛 b，曲线会极其平滑。</div>
+          <div class="step-meta"><b>适用边界：</b>蒙特卡洛有离散时间监控偏差和有限视界截断误差，适合直观校验，不替代高精度 FDM。</div>
+        </div>
+        </div>
+    </section>
+
+    
+
+    <section class="card">
+      <h2>4. 3 分钟防坑边界与常见误区</h2>
+      <div class="pitfall-box">
+        <b>顶刊与推导避坑提示</b>
+        <ul><li>忘记在 GBM 模拟步里减去 ½σ²Δt（见 RO-S05）。</li></ul>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>5. 5 分钟轻量自测与 60 秒费曼复述</h2>
+      
+        <div class="quiz-card">
+          <div><b>Q1.</b> 【预热自测】用离散时间步长 Δt 模拟连续时间最优停止时，模拟出的期望价值通常会比理论解析解略高还是略低？</div>
+          <details>
+            <summary>展开参考答案与解析</summary>
+            <p style="margin:8px 0 4px;"><b>参考答案：</b>通常略低。</p>
+            <p style="margin:4px 0;"><b>解析：</b>因为离散时间只能在网格点观察，错过了步长中间首次穿越门槛的瞬间，且有限模拟时长 T 截断了尾部路径。</p>
+            <p style="margin:4px 0 0;" class="muted"><b>常见失误：</b>看到模拟值略低于解析解就误以为解析解推错了。</p>
+          </details>
+        </div>
+        
+      <div class="highlight-box" style="margin-top:14px;">
+        <b>60 秒闭卷费曼复述</b>
+        <p style="margin:6px 0 0;">讲清楚如何用蒙特卡洛扫描不同门槛 b，直观验证你算出的 x* 真的是峰值。</p>
+      </div>
+      <div class="cta-row">
+        <button id="toggle-done-btn" type="button" class="btn btn-navy" data-lesson-key="ro-s21">
+          标记本节已完成（本地打卡）
+        </button>
+      </div>
+    </section>
+
+    <nav class="pager">
+      <a class="btn btn-soft" href="ro-s20.html">← 上一节：RO-S20</a>
+      <a class="btn btn-soft" href="../stages/stage04.html">返回本阶段目录</a>
+      <a class="btn btn-navy" href="ro-s22.html">下一节：RO-S22 →</a>
+    </nav>
+    
+    <footer class="disclaimer">本课程所有金融、能源或商业投资算例均标注为“教学演示”，仅用于辅助理解数学机制，不代表已核验文献结论或实证结果。</footer>
+  </main>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+  <script defer src="../assets/app.js"></script>
+</body>
+</html>

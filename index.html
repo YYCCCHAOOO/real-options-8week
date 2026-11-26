@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>8周总览 · 连续时间实物期权 · 8周轻量实战</title>
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="index.html">连续时间实物期权 · 8周轻量实战</a>
+      <nav class="nav-links">
+        <a href="index.html">8周总览</a>
+        <a href="stages/stage01.html">Stage 1</a>
+        <a href="stages/stage02.html">Stage 2</a>
+        <a href="stages/stage03.html">Stage 3</a>
+        <a href="stages/stage04.html">Stage 4</a>
+      </nav>
+    </div>
+  </header>
+  <main class="container">
+    
+    <section class="hero">
+      <div class="hero-meta">
+        <span class="chip chip-light">8 周双线合并</span>
+        <span class="chip chip-light">每天 15–30 分钟</span>
+        <span class="chip chip-light">24 节微课 + 4 次复盘</span>
+      </div>
+      <h1>连续时间实物期权与最优停止（8周双线实战）</h1>
+      <p>每天 15–30 分钟、共 8 周（24 节微课 + 4 次双周复盘）。前 2 周补齐微积分/ODE/概率核心底座，后 6 周逐层打通建模与平滑粘贴、随机微积分与验证定理、凸分析判号及 Python 数值/区间验算。</p>
+      <div class="progress-box" data-progress-total="28">
+        <div class="progress-row">
+          <span>学习总进度（浏览器本地记录）</span>
+          <span id="progress-text">0 / 28 节点已完成（0%）</span>
+        </div>
+        <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+      </div>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="lessons/ro-s01.html">从第 1 课 RO-S01 开始 →</a>
+        <a class="btn btn-ghost" href="stages/stage01.html">查看 Stage 1 完整教材</a>
+      </div>
+    </section>
+
+    <section>
+      <h2 style="margin:0 0 12px;color:var(--navy);font-size:1.15rem;">四阶段学习路线（逐步完善架构）</h2>
+      <div class="stage-grid">
+            <article class="stage-card">
+              <div class="stage-card-top">
+                <span class="chip chip-navy">第 1–2 周 · 双线合并前置底座</span>
+                <span class="chip chip-ready">完整教材已就绪</span>
+              </div>
+              <h3><a href="stages/stage01.html">Stage 1｜微积分、概率与 ODE 关键底座</a></h3>
+              <p>用两周轻量微课精准补齐连续时间实物期权最离不开的 6 块数学地基：边际与曲率、隐函数比较静态、二阶欧拉方程特征根、连续折现积分、对数正态分布与几何布朗运动直觉。</p>
+              <div class="stage-card-footer">
+                <span class="muted" data-stage-keys="ro-s01,ro-s02,ro-s03,ro-s04,ro-s05,ro-s06,ro-r01">本地打卡：0 / 7</span>
+                <a class="btn btn-soft" href="stages/stage01.html">进入阶段 →</a>
+              </div>
+            </article>
+            
+            <article class="stage-card">
+              <div class="stage-card-top">
+                <span class="chip chip-navy">第 3–4 周 · 第 1 层功力</span>
+                <span class="chip chip-outline">结构骨架已就绪（待下轮精修）</span>
+              </div>
+              <h3><a href="stages/stage02.html">Stage 2｜建模型、值匹配与平滑粘贴</a></h3>
+              <p>对应第 1 层功力（Dixit &amp; Pindyck 经典套路）：学会把商业/投资故事翻译成 GBM、Itô 引理、HJB 方程、值匹配与平滑粘贴条件，并掌握反射边界与下限保证的标准组件。</p>
+              <div class="stage-card-footer">
+                <span class="muted" data-stage-keys="ro-s07,ro-s08,ro-s09,ro-s10,ro-s11,ro-s12,ro-r02">本地打卡：0 / 7</span>
+                <a class="btn btn-soft" href="stages/stage02.html">进入阶段 →</a>
+              </div>
+            </article>
+            
+            <article class="stage-card">
+              <div class="stage-card-top">
+                <span class="chip chip-navy">第 5–6 周 · 第 2–3 层功力</span>
+                <span class="chip chip-outline">结构骨架已就绪（待后续精修）</span>
+              </div>
+              <h3><a href="stages/stage03.html">Stage 3｜严格验证定理与凸分析判号</a></h3>
+              <p>对应第 2–3 层功力（顶刊分水岭 + 代数灵气）：读懂并运用鞅、可选停时定理、变分不等式（VI）、Verification Theorem 三步证明、局部时 Neumann 条件、样本路径耦合与凸分析判号套路。</p>
+              <div class="stage-card-footer">
+                <span class="muted" data-stage-keys="ro-s13,ro-s14,ro-s15,ro-s16,ro-s17,ro-s18,ro-r03">本地打卡：0 / 7</span>
+                <a class="btn btn-soft" href="stages/stage03.html">进入阶段 →</a>
+              </div>
+            </article>
+            
+            <article class="stage-card">
+              <div class="stage-card-top">
+                <span class="chip chip-navy">第 7–8 周 · 第 4 层 + 第 0 层</span>
+                <span class="chip chip-outline">结构骨架已就绪（待后续精修）</span>
+              </div>
+              <h3><a href="stages/stage04.html">Stage 4｜现代数值校验、区间证书与论文实战</a></h3>
+              <p>对应第 4 层（工程化防杠）与第 0 层（顶刊切口）：掌握用 Python（SymPy、有限差分 BVP/VI、蒙特卡洛、mpmath 高精度区间算术）独立交叉验算理论命题，并完成顶刊论文精读与个人工具箱整合。</p>
+              <div class="stage-card-footer">
+                <span class="muted" data-stage-keys="ro-s19,ro-s20,ro-s21,ro-s22,ro-s23,ro-s24,ro-r04">本地打卡：0 / 7</span>
+                <a class="btn btn-soft" href="stages/stage04.html">进入阶段 →</a>
+              </div>
+            </article>
+            </div>
+    </section>
+
+    
+            <section class="card">
+              <div class="stage-card-top" style="margin-bottom:10px;">
+                <h2 style="margin:0;">Stage 1｜微积分、概率与 ODE 关键底座（第 1–2 周）</h2>
+                <span class="chip chip-ready">完整教材已就绪</span>
+              </div>
+              <div class="lesson-list">
+                <a class="lesson-item" data-lesson-item="ro-s01" href="lessons/ro-s01.html">
+                  <div class="lesson-item-main">
+                    <div class="lesson-code">RO-S01 · 第 1 周 · 第 1 课</div>
+                    <div class="lesson-title">导数、弹性与二阶曲率：给平滑粘贴和凸性判号打底</div>
+                    <div class="lesson-sub">一阶导数告诉你“多涨一点值多少钱”（斜率），二阶导数告诉你“斜率是不是越涨越快”（弯曲方向），而弹性把它们变成无量纲的百分比倍数。</div>
+                  </div>
+                  <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0;">
+                    <span class="chip chip-navy">20 分钟</span>
+                    <span class="muted" style="font-size:0.78rem;" data-done-badge>未开始</span>
+                  </div>
+                </a>
+                
+                <a class="lesson-item" data-lesson-item="ro-s02" href="lessons/ro-s02.html">
+                  <div class="lesson-item-main">
+                    <div class="lesson-code">RO-S02 · 第 1 周 · 第 2 课</div>
+                    <div class="lesson-title">偏导、隐函数定理与比较静态：门槛随参数往哪边动</div>
+                    <div class="lesson-sub">当最优门槛 x* 没法写成显式公式，只能满足隐式方程 H(x*, θ) = 0 时，隐函数定理用一句 dx*/dθ = -H_θ / H_x 就能直接判出门槛是升还是降。</div>
+                  </div>
+                  <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0;">
+                    <span class="chip chip-navy">22 分钟</span>
+                    <span class="muted" style="font-size:0.78rem;" data-done-badge>未开始</span>
+                  </div>
+                </a>
+                
+                <a class="lesson-item" data-lesson-item="ro-s03" href="lessons/ro-s03.html">
+                  <div class="lesson-item-main">
+                    <div class="lesson-code">RO-S03 · 第 1 周 · 第 3 课</div>
+                    <div class="lesson-title">二阶欧拉常微分方程与特征根 β, α：实物期权最常见的“八股文”</div>
+                    <div class="lesson-sub">实物期权里几乎所有等待区域的价值函数都满足同一个二阶欧拉方程，只要试探解 V(x) = x^γ，微分方程瞬间退化成初中一元二次方程，解出正根 β &gt; 1 和负根 α &lt; 0。</div>
+                  </div>
+                  <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0;">
+                    <span class="chip chip-navy">25 分钟</span>
+                    <span class="muted" style="font-size:0.78rem;" data-done-badge>未开始</span>
+                  </div>
+                </a>
+                
+                <a class="lesson-item" data-lesson-item="ro-s04" href="lessons/ro-s04.html">
+                  <div class="lesson-item-main">
+                    <div class="lesson-code">RO-S04 · 第 2 周 · 第 1 课</div>
+                    <div class="lesson-title">连续折现、无穷积分与现值算子：把现金流变成解析公式</div>
+                    <div class="lesson-sub">连续时间里，把未来每秒流进来的现金流乘上折现因子 e^{-rt} 再从 0 积到无穷，就得到永续现金流的现值公式 x / (r - μ)。</div>
+                  </div>
+                  <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0;">
+                    <span class="chip chip-navy">20 分钟</span>
+                    <span class="muted" style="font-size:0.78rem;" data-done-badge>未开始</span>
+                  </div>
+                </a>
+                
+                <a class="lesson-item" data-lesson-item="ro-s05" href="lessons/ro-s05.html">
+                  <div class="lesson-item-main">
+                    <div class="lesson-code">RO-S05 · 第 2 周 · 第 2 课</div>
+                    <div class="lesson-title">随机变量、期望方差与对数正态分布：看懂 GBM 的截面分布</div>
+                    <div class="lesson-sub">如果一个正数价格的对数 ln X_t 服从正态分布，那么 X_t 本身服从对数正态分布——它的中位数比均值低，正因为多出了那一项著名的 -½σ²t。</div>
+                  </div>
+                  <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0;">
+                    <span class="chip chip-navy">20 分钟</span>
+                    <span class="muted" style="font-size:0.78rem;" data-done-badge>未开始</span>
+                  </div>
+                </a>
+                
+                <a class="lesson-item" data-lesson-item="ro-s06" href="lessons/ro-s06.html">
+                  <div class="lesson-item-main">
+                    <div class="lesson-code">RO-S06 · 第 2 周 · 第 3 课</div>
+                    <div class="lesson-title">布朗运动与几何布朗运动（GBM）：连续时间模型的通用发动机</div>
+                    <div class="lesson-sub">布朗运动 W_t 是“处处连续但处处锯齿不可微”的随机游走极限，它的关键铁律是 (dW_t)² = dt；几何布朗运动 dX_t/X_t = μ dt + σ dW_t 则是把这种随机震荡写成百分比收益率。</div>
+                  </div>
+                  <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0;">
+                    <span class="chip chip-navy">22 分钟</span>
+                    <span class="muted" style="font-size:0.78rem;" data-done-badge>未开始</span>
+                  </div>
+                </a>
+                
+                <a class="lesson-item" data-lesson-item="ro-r01" href="lessons/ro-r01.html">
+                  <div class="lesson-item-main">
+                    <div class="lesson-code">RO-R01 · 第 2 周末 · Stage 1 双周复盘</div>
+                    <div class="lesson-title">Stage 1 底座通关复盘：6 块地基如何拼出连续时间世界</div>
+                    <div class="lesson-sub">Stage 1 的 6 节课其实是一条严丝合缝的链条：凸性（S01）+ 比较静态（S02）+ 欧拉特征根（S03）+ 现值特解（S04）+ 对数正态修正（S05）+ GBM 与 (dW_t)²=dt（S06）。</div>
+                  </div>
+                  <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0;">
+                    <span class="chip chip-navy">双周复盘</span>
+                    <span class="muted" style="font-size:0.78rem;" data-done-badge>未开始</span>
+                  </div>
+                </a>
+                </div>
+            </section>
+            
+            <section class="card">
+              <div class="stage-card-top" style="margin-bottom:10px;">
+                <h2 style="margin:0;">Stage 2｜建模型、值匹配与平滑粘贴（第 3–4 周）</h2>
+                <span class="chip chip-outline">结构骨架已就绪（待下轮精修）</span>
+              </div>
+              <div class="lesson-list">
+                <a class="lesson-item" data-lesson-item="ro-s07" href="lessons/ro-s07.html">
+                  <div class="lesson-item-main">
+                    <div class="lesson-code">RO-S07 · 第 3 周 · 第 1 课</div>
+                    <div class="lesson-title">实物期权核心直觉：等待价值 vs 静态 NPV</div>
+                    <div class="lesson-sub">当投资不可逆且未来不确定时，立即投资会杀死“继续观察的等待期权”，因此最优行动门槛远高于静态 NPV = 0。</div>
+                  </div>
+                  <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0;">
+                    <span class="chip chip-navy">20 分钟</span>
+                    <span class="muted" style="font-size:0.78rem;" data-done-badge>未开始</span>
+                  </div>
+                </a>
+                
+                <a class="lesson-item" data-lesson-item="ro-s08" href="lessons/ro-s08.html">
+                  <div class="lesson-item-main">
+                    <div class="lesson-code">RO-S08 · 第 3 周 · 第 2 课</div>
+                    <div class="lesson-title">Itô 引理的工程读法：二阶项从哪来</div>
+                    <div class="lesson-sub">Itô 引理就是把普通微积分的链式法则多保留一项二阶 Taylor 展开，再把 (dW_t)² 替换成 dt。</div>
+                  </div>
+                  <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0;">
+                    <span class="chip chip-navy">22 分钟</span>
+                    <span class="muted" style="font-size:0.78rem;" data-done-badge>未开始</span>
+                  </div>
+                </a>
+                
+                <a class="lesson-item" data-lesson-item="ro-s09" href="lessons/ro-s09.html">
+                  <div class="lesson-item-main">
+                    <div class="lesson-code">RO-S09 · 第 3 周 · 第 3 课</div>
+                    <div class="lesson-title">从离散 Δt 到连续时间 HJB 方程与欧拉 ODE</div>
+                    <div class="lesson-sub">在等待区，要求期望资本利得率等于无风险折现率 r，把 Itô 引理取期望后令 Δt → 0，就立刻得到 RO-S03 学过的二阶欧拉方程。</div>
+                  </div>
+                  <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0;">
+                    <span class="chip chip-navy">22 分钟</span>
+                    <span class="muted" style="font-size:0.78rem;" data-done-badge>未开始</span>
+                  </div>
+                </a>
+                
+                <a class="lesson-item" data-lesson-item="ro-s10" href="lessons/ro-s10.html">
+                  <div class="lesson-item-main">
+                    <div class="lesson-code">RO-S10 · 第 4 周 · 第 1 课</div>
+                    <div class="lesson-title">值匹配（Value Matching）与平滑粘贴（Smooth Fit）的几何直觉</div>
+                    <div class="lesson-sub">值匹配保证“跨过门槛时价值不跳崖”，平滑粘贴保证“价值曲线与行动收益曲线刚好相切，没有尖角折点”。</div>
+                  </div>
+                  <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0;">
+                    <span class="chip chip-navy">20 分钟</span>
+                    <span class="muted" style="font-size:0.78rem;" data-done-badge>未开始</span>
+                  </div>
+                </a>
+                
+                <a class="lesson-item" data-lesson-item="ro-s11" href="lessons/ro-s11.html">
+                  <div class="lesson-item-main">
+                    <div class="lesson-code">RO-S11 · 第 4 周 · 第 2 课</div>
+                    <div class="lesson-title">经典单阈值最优停止全流程：从 x* 到期权倍数 β/(β-1)</div>
+                    <div class="lesson-sub">把 V(x)=Ax^β 代入值匹配与平滑粘贴，三行代数就解出实物期权最著名的公式：x* / (r-μ) = [β/(β-1)] · I。</div>
+                  </div>
+                  <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0;">
+                    <span class="chip chip-navy">25 分钟</span>
+                    <span class="muted" style="font-size:0.78rem;" data-done-badge>未开始</span>
+                  </div>
+                </a>
+                
+                <a class="lesson-item" data-lesson-item="ro-s12" href="lessons/ro-s12.html">
+                  <div class="lesson-item-main">
+                    <div class="lesson-code">RO-S12 · 第 4 周 · 第 3 课</div>
+                    <div class="lesson-title">反射边界与下限保证（Floor Guarantee）的标准组件组装</div>
+                    <div class="lesson-sub">当状态变量存在下限反射或政府保底补贴时，通解里必须同时保留 A x^β 和 B x^α 两项，用下边界的平滑/反射条件把组件拼进整篇论文。</div>
+                  </div>
+                  <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0;">
+                    <span class="chip chip-navy">22 分钟</span>
+                    <span class="muted" style="font-size:0.78rem;" data-done-badge>未开始</span>
+                  </div>
+                </a>
+                
+                <a class="lesson-item" data-lesson-item="ro-r02" href="lessons/ro-r02.html">
+                  <div class="lesson-item-main">
+                    <div class="lesson-code">RO-R02 · 第 4 周末 · Stage 2 双周复盘</div>
+                    <div class="lesson-title">Stage 2 建模通关复盘：第 1 层功力完整闭环</div>
+                    <div class="lesson-sub">通关 Stage 2 意味着你已经能把一个连续时间投资故事翻译成 GBM → Itô → HJB ODE → 值匹配/平滑粘贴 → 门槛方程与标准组件。</div>
+                  </div>
+                  <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0;">
+                    <span class="chip chip-navy">双周复盘</span>
+                    <span class="muted" style="font-size:0.78rem;" data-done-badge>未开始</span>
+                  </div>
+                </a>
+                </div>
+            </section>
+            
+            <section class="card">
+              <div class="stage-card-top" style="margin-bottom:10px;">
+                <h2 style="margin:0;">Stage 3｜严格验证定理与凸分析判号（第 5–6 周）</h2>
+                <span class="chip chip-outline">结构骨架已就绪（待后续精修）</span>
+              </div>
+              <div class="lesson-list">
+                <a class="lesson-item" data-lesson-item="ro-s13" href="lessons/ro-s13.html">
+                  <div class="lesson-item-main">
+                    <div class="lesson-code">RO-S13 · 第 5 周 · 第 1 课</div>
+                    <div class="lesson-title">鞅、停止时间与可选停时定理（OST）的直觉</div>
+                    <div class="lesson-sub">鞅是“公平赌局”（未来期望等于现在），超鞅是“对你不利的赌局”（越等期望越低），停止时间是“不偷看未来的出手规则”。</div>
+                  </div>
+                  <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0;">
+                    <span class="chip chip-navy">22 分钟</span>
+                    <span class="muted" style="font-size:0.78rem;" data-done-badge>未开始</span>
+                  </div>
+                </a>
+                
+                <a class="lesson-item" data-lesson-item="ro-s14" href="lessons/ro-s14.html">
+                  <div class="lesson-item-main">
+                    <div class="lesson-code">RO-S14 · 第 5 周 · 第 2 课</div>
+                    <div class="lesson-title">为什么平滑粘贴不等于全局最优：变分不等式（VI）三大条件</div>
+                    <div class="lesson-sub">全局最优值函数必须同时满足变分不等式三件套：处处不低于立即收益、处处 L V - rV ≤ 0、且二者至少有一个取等号。</div>
+                  </div>
+                  <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0;">
+                    <span class="chip chip-navy">22 分钟</span>
+                    <span class="muted" style="font-size:0.78rem;" data-done-badge>未开始</span>
+                  </div>
+                </a>
+                
+                <a class="lesson-item" data-lesson-item="ro-s15" href="lessons/ro-s15.html">
+                  <div class="lesson-item-main">
+                    <div class="lesson-code">RO-S15 · 第 5 周 · 第 3 课</div>
+                    <div class="lesson-title">Verification Theorem 三步证明模板与无穷远增长条件</div>
+                    <div class="lesson-sub">顶刊附录里的验证定理几乎清一色是固定三步：对折现候选函数用 Itô-Tanaka → 用 VI 证上界 → 在候选停时 τ* 上用增长条件取等。</div>
+                  </div>
+                  <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0;">
+                    <span class="chip chip-navy">25 分钟</span>
+                    <span class="muted" style="font-size:0.78rem;" data-done-badge>未开始</span>
+                  </div>
+                </a>
+                
+                <a class="lesson-item" data-lesson-item="ro-s16" href="lessons/ro-s16.html">
+                  <div class="lesson-item-main">
+                    <div class="lesson-code">RO-S16 · 第 6 周 · 第 1 课</div>
+                    <div class="lesson-title">反射边界的局部时（Local Time）与 Neumann 边界条件</div>
+                    <div class="lesson-sub">反射过程 dX_t = μX_t dt + σX_t dW_t + dL_t 里的 dL_t 只在撞到下界 a 时才推一把，施加 Neumann 条件 V&#x27;(a) = 0 正是为了把 dL_t 项从 Itô 公式里精准消掉。</div>
+                  </div>
+                  <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0;">
+                    <span class="chip chip-navy">22 分钟</span>
+                    <span class="muted" style="font-size:0.78rem;" data-done-badge>未开始</span>
+                  </div>
+                </a>
+                
+                <a class="lesson-item" data-lesson-item="ro-s17" href="lessons/ro-s17.html">
+                  <div class="lesson-item-main">
+                    <div class="lesson-code">RO-S17 · 第 6 周 · 第 2 课</div>
+                    <div class="lesson-title">样本路径耦合（Coupling）与比较原理：几行证出不等式</div>
+                    <div class="lesson-sub">把两个不同机制（或不同起点）放进同一个布朗运动 W_t 驱动下逐条路径比大小，往往三行就能证出硬算十页都推不出的价值不等式。</div>
+                  </div>
+                  <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0;">
+                    <span class="chip chip-navy">20 分钟</span>
+                    <span class="muted" style="font-size:0.78rem;" data-done-badge>未开始</span>
+                  </div>
+                </a>
+                
+                <a class="lesson-item" data-lesson-item="ro-s18" href="lessons/ro-s18.html">
+                  <div class="lesson-item-main">
+                    <div class="lesson-code">RO-S18 · 第 6 周 · 第 3 课</div>
+                    <div class="lesson-title">凸分析判号与代数变形套路：构造 U 型函数 G(z) 与倒推法</div>
+                    <div class="lesson-sub">顶刊定理里看起来神来之笔的“构造凸函数 G(z) 判号”，背后其实有一套固定的降维套路：无量纲化比值 z → 消掉参数 → 求导看凸性 → 用数值画图先验真再倒推。</div>
+                  </div>
+                  <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0;">
+                    <span class="chip chip-navy">25 分钟</span>
+                    <span class="muted" style="font-size:0.78rem;" data-done-badge>未开始</span>
+                  </div>
+                </a>
+                
+                <a class="lesson-item" data-lesson-item="ro-r03" href="lessons/ro-r03.html">
+                  <div class="lesson-item-main">
+                    <div class="lesson-code">RO-R03 · 第 6 周末 · Stage 3 双周复盘</div>
+                    <div class="lesson-title">Stage 3 严格验证复盘：读懂顶刊附录 A 的审计框架</div>
+                    <div class="lesson-sub">通关 Stage 3 意味着你已经具备阅读和审计顶刊实物期权论文理论附录的核心工具：VI、验证定理、局部时、耦合与凸分析判号。</div>
+                  </div>
+                  <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0;">
+                    <span class="chip chip-navy">双周复盘</span>
+                    <span class="muted" style="font-size:0.78rem;" data-done-badge>未开始</span>
+                  </div>
+                </a>
+                </div>
+            </section>
+            
+            <section class="card">
+              <div class="stage-card-top" style="margin-bottom:10px;">
+                <h2 style="margin:0;">Stage 4｜现代数值校验、区间证书与论文实战（第 7–8 周）</h2>
+                <span class="chip chip-outline">结构骨架已就绪（待后续精修）</span>
+              </div>
+              <div class="lesson-list">
+                <a class="lesson-item" data-lesson-item="ro-s19" href="lessons/ro-s19.html">
+                  <div class="lesson-item-main">
+                    <div class="lesson-code">RO-S19 · 第 7 周 · 第 1 课</div>
+                    <div class="lesson-title">SymPy 符号推导与代数核验：把体力活交给计算机</div>
+                    <div class="lesson-sub">手推负责想思路，SymPy 负责 100% 精准验算导数、代入 ODE 归零、消元和比较静态符号。</div>
+                  </div>
+                  <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0;">
+                    <span class="chip chip-navy">22 分钟</span>
+                    <span class="muted" style="font-size:0.78rem;" data-done-badge>未开始</span>
+                  </div>
+                </a>
+                
+                <a class="lesson-item" data-lesson-item="ro-s20" href="lessons/ro-s20.html">
+                  <div class="lesson-item-main">
+                    <div class="lesson-code">RO-S20 · 第 7 周 · 第 2 课</div>
+                    <div class="lesson-title">有限差分法（FDM）数值求解自由边界 BVP 与变分不等式（VI）</div>
+                    <div class="lesson-sub">不依赖任何解析公式，直接把状态空间切网格，用有限差分 + 投影迭代（PSOR/策略迭代）解出值函数和自由边界，作为完全独立的“第二证人”。</div>
+                  </div>
+                  <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0;">
+                    <span class="chip chip-navy">25 分钟</span>
+                    <span class="muted" style="font-size:0.78rem;" data-done-badge>未开始</span>
+                  </div>
+                </a>
+                
+                <a class="lesson-item" data-lesson-item="ro-s21" href="lessons/ro-s21.html">
+                  <div class="lesson-item-main">
+                    <div class="lesson-code">RO-S21 · 第 7 周 · 第 3 课</div>
+                    <div class="lesson-title">蒙特卡洛样本路径模拟与最优阈值交叉校验</div>
+                    <div class="lesson-sub">生成几万条 GBM 路径，分别试不同的停止门槛 b，画出期望折现收益随 b 变化的曲线——解析最优门槛 x* 应该正好落在曲线最高点！</div>
+                  </div>
+                  <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0;">
+                    <span class="chip chip-navy">20 分钟</span>
+                    <span class="muted" style="font-size:0.78rem;" data-done-badge>未开始</span>
+                  </div>
+                </a>
+                
+                <a class="lesson-item" data-lesson-item="ro-s22" href="lessons/ro-s22.html">
+                  <div class="lesson-item-main">
+                    <div class="lesson-code">RO-S22 · 第 8 周 · 第 1 课</div>
+                    <div class="lesson-title">mpmath 高精度区间算术与计算机辅助存在性证明</div>
+                    <div class="lesson-sub">普通浮点数有舍入误差不能当数学证明；区间算术（mpmath.iv）把每一步舍入误差都严丝合缝包进上下界里，配合介值定理与隐函数定理就能给出顶刊认可的严格存在性证书。</div>
+                  </div>
+                  <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0;">
+                    <span class="chip chip-navy">22 分钟</span>
+                    <span class="muted" style="font-size:0.78rem;" data-done-badge>未开始</span>
+                  </div>
+                </a>
+                
+                <a class="lesson-item" data-lesson-item="ro-s23" href="lessons/ro-s23.html">
+                  <div class="lesson-item-main">
+                    <div class="lesson-code">RO-S23 · 第 8 周 · 第 2 课</div>
+                    <div class="lesson-title">顶刊实物期权论文精读清单（第 0 层切口、命题链与附录审计）</div>
+                    <div class="lesson-sub">读一篇 OR / MS / EJOR 级实物期权论文，最高效的顺序不是从第 1 页线性死磕，而是先抓第 0 层经济切口与对比边界，再画命题依赖图，最后按模板审计附录。</div>
+                  </div>
+                  <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0;">
+                    <span class="chip chip-navy">25 分钟</span>
+                    <span class="muted" style="font-size:0.78rem;" data-done-badge>未开始</span>
+                  </div>
+                </a>
+                
+                <a class="lesson-item" data-lesson-item="ro-s24" href="lessons/ro-s24.html">
+                  <div class="lesson-item-main">
+                    <div class="lesson-code">RO-S24 · 第 8 周 · 第 3 课</div>
+                    <div class="lesson-title">8 周总复盘与个人连续时间建模工具箱整合</div>
+                    <div class="lesson-sub">8 周结束不是终点，而是你拥有了一张清晰的“连续时间实物期权能力地图”和一套可复用的推导、审计与验算工具箱。</div>
+                  </div>
+                  <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0;">
+                    <span class="chip chip-navy">25 分钟</span>
+                    <span class="muted" style="font-size:0.78rem;" data-done-badge>未开始</span>
+                  </div>
+                </a>
+                
+                <a class="lesson-item" data-lesson-item="ro-r04" href="lessons/ro-r04.html">
+                  <div class="lesson-item-main">
+                    <div class="lesson-code">RO-R04 · 第 8 周末 · Stage 4 双周复盘与结业自测</div>
+                    <div class="lesson-title">Stage 4 终期通关复盘：4 层能力全链路验收</div>
+                    <div class="lesson-sub">用一份终期综合验收集齐 8 周全部 4 个阶段的核心关卡，正式从“看符号发怵”切换到“能读、能审、能验算”。</div>
+                  </div>
+                  <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0;">
+                    <span class="chip chip-navy">双周复盘</span>
+                    <span class="muted" style="font-size:0.78rem;" data-done-badge>未开始</span>
+                  </div>
+                </a>
+                </div>
+            </section>
+            
+
+    <section class="card">
+      <h2>4 层论文功力与课程映射表</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>能力层级</th><th>对应阶段</th><th>难度定位</th><th>核心目标</th></tr></thead>
+          <tbody><tr><td><b>第 0 层：提炼好问题与边界</b></td><td>贯穿全程（Stage 4 集中拆解）</td><td>考经济直觉</td><td>识别“表面相似、底层机制不同”的干净切口，把商业故事翻译成清晰边界。</td></tr><tr><td><b>第 1 层：建模型、解 ODE、值匹配与平滑粘贴</b></td><td>Stage 1（底座）+ Stage 2（实战）</td><td>★★☆☆☆（高度套路化）</td><td>掌握二阶欧拉方程特征根、Itô 引理工程读法、HJB 方程、值匹配与平滑粘贴以及反射边界组件。</td></tr><tr><td><b>第 2 层：严格验证定理与局部时</b></td><td>Stage 3（前 4 课）</td><td>★★★☆☆（顶刊分水岭）</td><td>看懂并运用变分不等式（VI）、Verification Theorem 三步证明、无穷远增长条件与局部时 Neumann 条件。</td></tr><tr><td><b>第 3 层：代数变形与凸分析判号</b></td><td>Stage 3（后 2 课）</td><td>★★★★☆（最吃灵气）</td><td>掌握样本路径耦合比较原理、构造 U 型凸函数判号与借助符号软件倒推不等式。</td></tr><tr><td><b>第 4 层：现代数值校验与区间证书</b></td><td>Stage 4（全部 6 课）</td><td>★★★☆☆（工程化防杠）</td><td>用 SymPy、有限差分 BVP/VI、蒙特卡洛与 mpmath 区间算术交叉验算，堵死推导与计算漏洞。</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>外部教材校准清单（仅作概念校准）</h2>
+      <ul style="margin:0;padding-left:20px;"><li><b>Dixit, A. K., &amp; Pindyck, R. S. (1994). Investment under Uncertainty. Princeton University Press.</b>：第 1 层经典教材校准：几何布朗运动、动态规划/无套利推导、值匹配与平滑粘贴标准框架。</li><li><b>Øksendal, B. (2003). Stochastic Differential Equations (6th ed.). Springer.</b>：第 2 层概念校准：Itô 公式、鞅、停止时间与最优停止基础。</li><li><b>Peskir, G., &amp; Shiryaev, A. (2006). Optimal Stopping and Free-Boundary Problems. Birkhäuser.</b>：第 2 层顶刊规范校准：自由边界问题、变分不等式与验证定理结构。</li></ul>
+    </section>
+    
+    <footer class="disclaimer">本课程所有金融、能源或商业投资算例均标注为“教学演示”，仅用于辅助理解数学机制，不代表已核验文献结论或实证结果。</footer>
+  </main>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+  <script defer src="assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RO-S04 连续折现、无穷积分与现值算子：把现金流变成解析公式 · 连续时间实物期权 · 8周轻量实战</title>
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="../index.html">连续时间实物期权 · 8周轻量实战</a>
+      <nav class="nav-links">
+        <a href="../index.html">8周总览</a>
+        <a href="../stages/stage01.html">Stage 1</a>
+        <a href="../stages/stage02.html">Stage 2</a>
+        <a href="../stages/stage03.html">Stage 3</a>
+        <a href="../stages/stage04.html">Stage 4</a>
+      </nav>
+    </div>
+  </header>
+  <main class="container">
+    
+    <p class="muted" style="margin:0 0 10px;">
+      <a href="../index.html">8周总览</a> /
+      <a href="../stages/stage01.html">Stage 1｜微积分、概率与 ODE 关键底座</a> /
+      RO-S04
+    </p>
+
+    <section class="card">
+      <div class="hero-meta" style="margin-bottom:10px;">
+        <span class="chip chip-navy">RO-S04 · 第 2 周 · 第 1 课</span>
+        <span class="chip chip-navy">预计 20 分钟</span>
+        <span class="chip chip-ready">完整微课</span>
+      </div>
+      <h1 style="margin:0 0 12px;font-size:1.35rem;color:var(--navy);line-height:1.35;">连续折现、无穷积分与现值算子：把现金流变成解析公式</h1>
+      <div class="highlight-box">
+        <b>1. 3 分钟直觉唤醒（一句话核心）</b>
+        <p style="margin:6px 0 0;">连续时间里，把未来每秒流进来的现金流乘上折现因子 e^{-rt} 再从 0 积到无穷，就得到永续现金流的现值公式 x / (r - μ)。</p>
+      </div>
+      <p style="margin:0 0 6px;"><b>它解决什么建模痛点：</b>实物期权里一旦决定投资，你将立刻拿到“未来无穷期现金流的期望现值”（比如 v_R(x) 或 v_C(x)）。理解连续折现积分和无穷远横截条件，你就能一眼看懂已建成项目的价值公式是怎么来的。</p>
+      <p style="margin:0;" class="muted"><b>课程衔接：</b>RO-S03 解决了“等待期”的齐次 ODE；本课解决“投产后”的非齐次特解与现金流现值。</p>
+    </section>
+
+    
+
+    <section class="card">
+      <h2>2. 10 分钟核心公式与白话拆解</h2>
+      <p>离散时间里，1 年后收到 1 块钱折现到今天是 1/(1+r)；如果把计息频率拆成每秒、每毫秒无限细分，连续复利折现因子就是 e^{-rt}。</p><p>假设项目建成后，t 时刻的期望现金流以速率 μ 增长，即 E[X_t] = x e^{μt}。把它折现到今天再把从 t=0 到 t=∞ 的每一瞬间加起来，就是积分 ∫_0^∞ x e^{-(r-μ)t} dt。</p><p>只要 r &gt; μ，被积函数指数衰减，积分收敛并给出极其干净的结果：x / (r - μ)。这就是金融学里著名的连续时间 Gordon 增长公式——同时也是非齐次 ODE (1/2)σ²x²v&#x27;&#x27; + μxv&#x27; - rv + x = 0 的特解！</p>
+      
+        <div class="formula-block">
+          <div class="formula-title">连续折现永续现金流现值</div>
+          <div class="math-scroll">$$v(x) = \mathbb{E}_x\left[\int_0^\infty e^{-rt} X_t \, dt\right] = \int_0^\infty e^{-rt} x e^{\mu t} \, dt = \frac{x}{r - \mu} \quad (r > \mu)$$</div>
+          <p class="formula-read"><b>白话读法：</b>当现金流期望按 μ 增长、按 r 折现时，永续现值等于当前流量 x 除以净折现率 (r - μ)。</p>
+        </div>
+        
+        <div class="formula-block">
+          <div class="formula-title">非齐次欧拉方程 = 特解（永续现金流）+ 齐次通解（期权/边界调整）</div>
+          <div class="math-scroll">$$\frac{1}{2}\sigma^2 x^2 v'' + \mu x v' - r v + x = 0 \implies v(x) = \frac{x}{r - \mu} + A x^\beta + B x^\alpha$$</div>
+          <p class="formula-read"><b>白话读法：</b>已建成但带有未来调整权（如暂停、退出或保底补贴）的项目价值，天然拆成“永久持有基准现值 x/(r-μ)”加上“附加期权项 A x^β + B x^α”。</p>
+        </div>
+        
+      <div class="step-grid">
+        <div class="step-card">
+          <h3>第 1 步：计算指数无穷积分</h3>
+          <p style="margin:4px 0 0;">∫_0^T e^{-kt} dt = (1 - e^{-kT}) / k。当 k = r - μ &gt; 0 且 T → ∞ 时，e^{-kT} → 0，得到 1/k = 1/(r - μ)。</p>
+          <div class="step-meta"><b>实战口诀：</b>记住最常用的积分模板：∫_0^∞ e^{-kt} dt = 1/k（k &gt; 0）。</div>
+          <div class="step-meta"><b>适用边界：</b>若 k ≤ 0（即 r ≤ μ），积分发散到 +∞，现值不存在。</div>
+        </div>
+        
+        <div class="step-card">
+          <h3>第 2 步：把“期望与积分交换顺序”当成标准动作（Fubini/Tonelli）</h3>
+          <p style="margin:4px 0 0;">因为 X_t &gt; 0，非负随机过程允许直接把期望 E 放进积分号里面，只需知道 E[X_t] = x e^{μt} 就能算出期望现值，甚至不需要知道 X_t 的完整分布。</p>
+          <div class="step-meta"><b>实战口诀：</b>线性现金流求期望现值，先算 E[X_t] 再积分。</div>
+          <div class="step-meta"><b>适用边界：</b>如果现金流是非线性的（例如带下限 max(X_t, F)），不能把期望直接塞进 max 里面，必须用 ODE 或分布积分求解。</div>
+        </div>
+        
+        <div class="step-card">
+          <h3>第 3 步：验证特解代入非齐次 ODE</h3>
+          <p style="margin:4px 0 0;">把 v_p(x) = x/(r-μ) 代入 (1/2)σ²x²v&#x27;&#x27; + μxv&#x27; - rv + x：二阶导为 0，一阶导为 1/(r-μ)，于是 μx/(r-μ) - rx/(r-μ) + x = -x + x = 0，精确成立！</p>
+          <div class="step-meta"><b>实战口诀：</b>看到非齐次项是线性现金流 x 或常数 c，特解分别试 x/(r-μ) 和 c/r。</div>
+          <div class="step-meta"><b>适用边界：</b>若是非线性现金流 x^k，则特解为 x^k / (-Q(k))，要求 Q(k) &lt; 0。</div>
+        </div>
+        </div>
+    </section>
+
+    
+        <section class="card">
+          <h2>3. 5 分钟最小算例（教学演示）</h2>
+          <div class="example-box">
+            <h3>【教学演示】拆解一个带固定运维成本的已建项目现值</h3>
+            <p>（教学演示算例）假设电厂建成后每秒净现金流为 X_t - c（当前 X_0 = 10，固定运维费 c = 2，r = 0.06，μ = 0.02）。</p>
+            <ol style="margin:8px 0 0;padding-left:20px;"><li>收入流 X_t 的永续现值：10 / (0.06 - 0.02) = 250。</li><li>固定成本流 c 的永续现值：2 / 0.06 ≈ 33.33（注意固定成本不随 μ 增长，所以除以 r 而不是 r - μ）。</li><li>若没有任何退出或保底条款，项目价值就是 250 - 33.33 = 216.67；若允许未来在 X_t 太低时关闭电厂，则会额外多出一项放弃期权 B x^α &gt; 0。</li></ol>
+          </div>
+        </section>
+        
+
+    <section class="card">
+      <h2>4. 3 分钟防坑边界与常见误区</h2>
+      <div class="pitfall-box">
+        <b>顶刊与推导避坑提示</b>
+        <ul><li>把固定成本 c 也错误地除以 (r - μ)：常数现金流没有增长率 μ，它的永续现值永远是 c / r。</li><li>遇到带下限保证 max(X_t, F) 的现金流，误写成 max(E[X_t], F) 再积分：由 Jensen 不等式，E[max(X_t, F)] &gt; max(E[X_t], F)，直接交换会系统性低估保底条款的价值。</li></ul>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>5. 5 分钟轻量自测与 60 秒费曼复述</h2>
+      
+        <div class="quiz-card">
+          <div><b>Q1.</b> 现金流为常数 c 的永续现值是多少？为什么分母不是 r - μ？</div>
+          <details>
+            <summary>展开参考答案与解析</summary>
+            <p style="margin:8px 0 4px;"><b>参考答案：</b>c / r。因为常数现金流不随随机过程 X_t 增长，它的增长率是 0。</p>
+            <p style="margin:4px 0;"><b>解析：</b>∫_0^∞ c e^{-rt} dt = c / r。</p>
+            <p style="margin:4px 0 0;" class="muted"><b>常见失误：</b>受 x/(r-μ) 惯性影响，把常数项也写成 c/(r-μ)。</p>
+          </details>
+        </div>
+        
+        <div class="quiz-card">
+          <div><b>Q2.</b> 为什么在已建项目带有“价格跌破 F 时享受补贴”的条款后，其价值函数会写成 x/(r-μ) + B x^α（在 x &gt; F 区域）？</div>
+          <details>
+            <summary>展开参考答案与解析</summary>
+            <p style="margin:8px 0 4px;"><b>参考答案：</b>x/(r-μ) 是无补贴时的永续现金流特解，B x^α（α &lt; 0）代表未来价格跌破 F 触发补贴的期望折现期权价值，且当 x → ∞ 时触发补贴的概率趋于 0，因此不包含 A x^β 项。</p>
+            <p style="margin:4px 0;"><b>解析：</b>这正是“基准现值 + 边界期权调整”的标准物理拆解。</p>
+            <p style="margin:4px 0 0;" class="muted"><b>常见失误：</b>看不懂为什么已建成项目里也会出现幂函数 x^α。</p>
+          </details>
+        </div>
+        
+        <div class="quiz-card">
+          <div><b>Q3.</b> 若项目建成后现金流为 X_t - c，且满足 r &gt; μ &gt; 0，求非齐次方程 (1/2)σ²x²v&#x27;&#x27; + μxv&#x27; - rv + (x - c) = 0 的一个特解。</div>
+          <details>
+            <summary>展开参考答案与解析</summary>
+            <p style="margin:8px 0 4px;"><b>参考答案：</b>v_p(x) = x/(r - μ) - c/r。</p>
+            <p style="margin:4px 0;"><b>解析：</b>线性微分方程满足叠加原理，两项的特解直接相加即可。</p>
+            <p style="margin:4px 0 0;" class="muted"><b>常见失误：</b>把负号写反或把 c/r 错写成 c/(r-μ)。</p>
+          </details>
+        </div>
+        
+      <div class="highlight-box" style="margin-top:14px;">
+        <b>60 秒闭卷费曼复述</b>
+        <p style="margin:6px 0 0;">用一句话解释：为什么非齐次 ODE 的通解可以直观理解为“躺平持有现值 + 未来灵活用权价值”？</p>
+      </div>
+      <div class="cta-row">
+        <button id="toggle-done-btn" type="button" class="btn btn-navy" data-lesson-key="ro-s04">
+          标记本节已完成（本地打卡）
+        </button>
+      </div>
+    </section>
+
+    <nav class="pager">
+      <a class="btn btn-soft" href="ro-s03.html">← 上一节：RO-S03</a>
+      <a class="btn btn-soft" href="../stages/stage01.html">返回本阶段目录</a>
+      <a class="btn btn-navy" href="ro-s05.html">下一节：RO-S05 →</a>
+    </nav>
+    
+    <footer class="disclaimer">本课程所有金融、能源或商业投资算例均标注为“教学演示”，仅用于辅助理解数学机制，不代表已核验文献结论或实证结果。</footer>
+  </main>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+  <script defer src="../assets/app.js"></script>
+</body>
+</html>

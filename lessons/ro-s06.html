@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RO-S06 布朗运动与几何布朗运动（GBM）：连续时间模型的通用发动机 · 连续时间实物期权 · 8周轻量实战</title>
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="../index.html">连续时间实物期权 · 8周轻量实战</a>
+      <nav class="nav-links">
+        <a href="../index.html">8周总览</a>
+        <a href="../stages/stage01.html">Stage 1</a>
+        <a href="../stages/stage02.html">Stage 2</a>
+        <a href="../stages/stage03.html">Stage 3</a>
+        <a href="../stages/stage04.html">Stage 4</a>
+      </nav>
+    </div>
+  </header>
+  <main class="container">
+    
+    <p class="muted" style="margin:0 0 10px;">
+      <a href="../index.html">8周总览</a> /
+      <a href="../stages/stage01.html">Stage 1｜微积分、概率与 ODE 关键底座</a> /
+      RO-S06
+    </p>
+
+    <section class="card">
+      <div class="hero-meta" style="margin-bottom:10px;">
+        <span class="chip chip-navy">RO-S06 · 第 2 周 · 第 3 课</span>
+        <span class="chip chip-navy">预计 22 分钟</span>
+        <span class="chip chip-ready">完整微课</span>
+      </div>
+      <h1 style="margin:0 0 12px;font-size:1.35rem;color:var(--navy);line-height:1.35;">布朗运动与几何布朗运动（GBM）：连续时间模型的通用发动机</h1>
+      <div class="highlight-box">
+        <b>1. 3 分钟直觉唤醒（一句话核心）</b>
+        <p style="margin:6px 0 0;">布朗运动 W_t 是“处处连续但处处锯齿不可微”的随机游走极限，它的关键铁律是 (dW_t)² = dt；几何布朗运动 dX_t/X_t = μ dt + σ dW_t 则是把这种随机震荡写成百分比收益率。</p>
+      </div>
+      <p style="margin:0 0 6px;"><b>它解决什么建模痛点：</b>90% 的实物期权论文第 2 节第一行都是“假设状态变量 X_t 服从几何布朗运动 dX_t = μ X_t dt + σ X_t dW_t”。今天彻底看懂每一项的物理含义和 (dW_t)² = dt 的直觉，你就能无缝进入 Stage 2 搭模型。</p>
+      <p style="margin:0;" class="muted"><b>课程衔接：</b>Stage 1 的收官课：把前 5 课的导数、ODE、折现和对数正态，全部装配到连续时间随机过程上。</p>
+    </section>
+
+    
+
+    <section class="card">
+      <h2>2. 10 分钟核心公式与白话拆解</h2>
+      <p>想象你在抛硬币走路：每经过极短时间 Δt，你往前或往后随机迈一步，步长不是 Δt，而是 √Δt（因为独立增量的方差与时间 Δt 成正比，所以标准差是 √Δt）。当 Δt → 0，这条密密麻麻的锯齿轨迹就是标准布朗运动 W_t。</p><p>正因为步长量级是 √Δt，把它平方之后，(ΔW_t)² 的量级竟然直接等于 Δt（而不是高阶小量 (Δt)²）！这就是普通微积分里没有、但随机微积分里核心的铁律：(dW_t)² = dt。</p><p>如果把布朗运动直接当价格，价格可能跌成负数；所以经济与金融里改写相对变化率 dX_t / X_t = μ dt + σ dW_t（即几何布朗运动 GBM），保证价格永远大于 0，且涨跌幅度按百分比缩放。</p>
+      
+        <div class="formula-block">
+          <div class="formula-title">几何布朗运动（GBM）的随机微分方程（SDE）</div>
+          <div class="math-scroll">$$dX_t = \mu X_t \, dt + \sigma X_t \, dW_t,\quad X_0 = x > 0$$</div>
+          <p class="formula-read"><b>白话读法：</b>瞬时价格变动 = 确定性趋势项（μ X_t dt）+ 随机波动冲击项（σ X_t dW_t）。两边同除以 X_t 就是百分比收益率 dX_t/X_t = μ dt + σ dW_t。</p>
+        </div>
+        
+        <div class="formula-block">
+          <div class="formula-title">随机微积分乘法规则表（Itô 速查口诀）</div>
+          <div class="math-scroll">$$(dt)^2 = 0,\quad dt \cdot dW_t = 0,\quad (dW_t)^2 = dt$$</div>
+          <p class="formula-read"><b>白话读法：</b>在展开二阶 Taylor 级数时，所有含 (dt)² 和 dt·dW_t 的项都比 dt 小得多可以扔掉，唯独 (dW_t)² 留了下来并变成确定性的 dt。</p>
+        </div>
+        
+      <div class="step-grid">
+        <div class="step-card">
+          <h3>第 1 步：记住布朗运动 W_t 的 3 条核心特征</h3>
+          <p style="margin:4px 0 0;">① W_0 = 0；② 独立增量：未来一段 ΔW = W_{t+Δt} - W_t 与过去历史完全无关（马尔可夫性）；③ 正态增量：W_{t+Δt} - W_t ~ N(0, Δt)。</p>
+          <div class="step-meta"><b>实战口诀：</b>因为增量与历史无关，最优决策只取决于当前状态 X_t，不取决于怎么走过来的。</div>
+          <div class="step-meta"><b>适用边界：</b>真实市场常有跳跃或均值回归，GBM 是最干净的基准模型，用来抓住核心机制。</div>
+        </div>
+        
+        <div class="step-card">
+          <h3>第 2 步：理解为什么 (dW_t)² = dt</h3>
+          <p style="margin:4px 0 0;">ΔW_t = √Δt · ε（其中 ε ~ N(0,1)），所以 (ΔW_t)² = Δt · ε²。它的期望是 Δt，而把很多个小段加起来时随机误差按 √Δt 消掉，最终变成确定性的 dt。</p>
+          <div class="step-meta"><b>实战口诀：</b>这是 Stage 2 推导 Itô 引理的唯一“黑魔法”，今天看懂了，下周 5 分钟就能学会 Itô 引理。</div>
+          <div class="step-meta"><b>适用边界：</b>严格数学上这是均方收敛（二次变差 [W, W]_t = t），不是逐点普通导数。</div>
+        </div>
+        
+        <div class="step-card">
+          <h3>第 3 步：连接离散模拟步（预告 Stage 4 代码）</h3>
+          <p style="margin:4px 0 0;">在电脑里模拟 GBM 路径有两种方式：精确对数步 X_{t+Δt} = X_t exp((μ - ½σ²)Δt + σ√Δt · ε)，或欧拉近似步 X_{t+Δt} ≈ X_t + μ X_t Δt + σ X_t √Δt · ε。对 GBM 优先用精确对数步，永不出现负价格。</p>
+          <div class="step-meta"><b>实战口诀：</b>写代码模拟 GBM 时，标准正态随机数 ε 一定要乘以 √Δt，绝不能乘以 Δt。</div>
+          <div class="step-meta"><b>适用边界：</b>离散化步长 Δt 太大时会漏掉路径在步长中间穿越门槛的情况（离散监控偏差）。</div>
+        </div>
+        </div>
+    </section>
+
+    
+        <section class="card">
+          <h2>3. 5 分钟最小算例（教学演示）</h2>
+          <div class="example-box">
+            <h3>【教学演示】计算一步离散时间里的 GBM 涨跌幅度</h3>
+            <p>（教学演示算例）设当前市场需求 X_0 = 100，μ = 0.04，σ = 0.20，时间步长 Δt = 0.01 年（约 2.5 个交易日），抽到一个标准正态冲击 ε = +1.5。</p>
+            <ol style="margin:8px 0 0;padding-left:20px;"><li>先算时间步长的平方根：√Δt = √0.01 = 0.10。</li><li>确定性对数漂移：(μ - ½σ²)Δt = (0.04 - 0.02) × 0.01 = +0.0002（非常小）。</li><li>随机冲击项：σ √Δt · ε = 0.20 × 0.10 × 1.5 = +0.03（比漂移项大 150 倍！）。于是 X_{0.01} = 100 × exp(0.0302) ≈ 103.07。这直观解释了为什么在短时间尺度上，随机波动的量级 √Δt 远压过趋势项 Δt。</li></ol>
+          </div>
+        </section>
+        
+
+    <section class="card">
+      <h2>4. 3 分钟防坑边界与常见误区</h2>
+      <div class="pitfall-box">
+        <b>顶刊与推导避坑提示</b>
+        <ul><li>在写模拟或手算增量时把 σ√Δt 写成 σΔt：这会导致波动率随着步长变细而彻底消失。</li><li>误以为 GBM 路径是光滑可导的：如果路径可导，(dW_t)² 就会是 (dt)² = 0，那么 Itô 引理里的二阶项 ½σ²x²V&#x27;&#x27; 会消失，整个实物期权的波动率价值也会跟着消失！</li></ul>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>5. 5 分钟轻量自测与 60 秒费曼复述</h2>
+      
+        <div class="quiz-card">
+          <div><b>Q1.</b> 在极短时间 Δt 内，布朗运动增量 ΔW_t 的典型大小（标准差）与 Δt 是什么关系？为什么这导致 (dW_t)² = dt？</div>
+          <details>
+            <summary>展开参考答案与解析</summary>
+            <p style="margin:8px 0 4px;"><b>参考答案：</b>标准差是 √Δt，因此平方 (ΔW_t)² 的量级恰好是一阶项 Δt，而不是可忽略的高阶小量 (Δt)²。</p>
+            <p style="margin:4px 0;"><b>解析：</b>因为 ΔW_t ~ N(0, Δt)，其方差就是 Δt。</p>
+            <p style="margin:4px 0 0;" class="muted"><b>常见失误：</b>按普通微积分直觉把所有平方项都直接扔掉。</p>
+          </details>
+        </div>
+        
+        <div class="quiz-card">
+          <div><b>Q2.</b> 为什么实物期权模型通常用几何布朗运动（GBM）而不是算术布朗运动（ABM）来刻画产品价格或市场需求？</div>
+          <details>
+            <summary>展开参考答案与解析</summary>
+            <p style="margin:8px 0 4px;"><b>参考答案：</b>GBM 保证状态变量严格为正，且变化幅度按百分比缩放，更符合价格与需求的经济直觉，同时其对应的 ODE 是可解析求解的欧拉方程。</p>
+            <p style="margin:4px 0;"><b>解析：</b>ABM 允许状态变量跌为负数，更适合刻画可正可负的利润差或利率利差。</p>
+            <p style="margin:4px 0 0;" class="muted"><b>常见失误：</b>不区分状态变量的正负域就随意选用随机过程。</p>
+          </details>
+        </div>
+        
+        <div class="quiz-card">
+          <div><b>Q3.</b> 用一句话说明：如果把 (dW_t)² = dt 从数学世界里删掉，对实物期权建模会发生什么？</div>
+          <details>
+            <summary>展开参考答案与解析</summary>
+            <p style="margin:8px 0 4px;"><b>参考答案：</b>ODE 里的波动率二阶项 ½σ²x²V&#x27;&#x27; 会消失，退化为确定性模型，等待期权因不确定性产生的额外价值也就无从谈起。</p>
+            <p style="margin:4px 0;"><b>解析：</b>波动率正是通过 (dW_t)² = dt 和价值函数的凸性 V&#x27;&#x27; &gt; 0 一起进入模型并产生期权溢价的。</p>
+            <p style="margin:4px 0 0;" class="muted"><b>常见失误：</b>把 (dW_t)² = dt 当成纯数学奇技淫巧，没看出它就是期权凸性溢价的发动机。</p>
+          </details>
+        </div>
+        
+      <div class="highlight-box" style="margin-top:14px;">
+        <b>60 秒闭卷费曼复述</b>
+        <p style="margin:6px 0 0;">用 60 秒串讲：在短时间 Δt 里，为什么随机波动 √Δt 比趋势 Δt 大得多，以及这如何一路连到二阶项 ½σ²x²V&#x27;&#x27;？</p>
+      </div>
+      <div class="cta-row">
+        <button id="toggle-done-btn" type="button" class="btn btn-navy" data-lesson-key="ro-s06">
+          标记本节已完成（本地打卡）
+        </button>
+      </div>
+    </section>
+
+    <nav class="pager">
+      <a class="btn btn-soft" href="ro-s05.html">← 上一节：RO-S05</a>
+      <a class="btn btn-soft" href="../stages/stage01.html">返回本阶段目录</a>
+      <a class="btn btn-navy" href="ro-r01.html">下一节：RO-R01 →</a>
+    </nav>
+    
+    <footer class="disclaimer">本课程所有金融、能源或商业投资算例均标注为“教学演示”，仅用于辅助理解数学机制，不代表已核验文献结论或实证结果。</footer>
+  </main>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+  <script defer src="../assets/app.js"></script>
+</body>
+</html>
